@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+let theme = MainTheme()
+
 @main
 struct AscaGamesApp: App {
     var body: some Scene {

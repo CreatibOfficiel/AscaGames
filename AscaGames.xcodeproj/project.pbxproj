@@ -16,6 +16,9 @@
 		F558135D292B649800BD8E41 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F558135C292B649800BD8E41 /* UsersView.swift */; };
 		F5581360292B6EA600BD8E41 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F558135F292B6EA600BD8E41 /* Extensions.swift */; };
 		F5581364292B751800BD8E41 /* CustomTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5581363292B751800BD8E41 /* CustomTable.swift */; };
+		F558136A292B835800BD8E41 /* EditUserLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5581369292B835800BD8E41 /* EditUserLine.swift */; };
+		F558136D292B843600BD8E41 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F558136C292B843600BD8E41 /* User.swift */; };
+		F5581370292B915D00BD8E41 /* MainTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F558136F292B915D00BD8E41 /* MainTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		F558135C292B649800BD8E41 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
 		F558135F292B6EA600BD8E41 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F5581363292B751800BD8E41 /* CustomTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTable.swift; sourceTree = "<group>"; };
+		F5581369292B835800BD8E41 /* EditUserLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserLine.swift; sourceTree = "<group>"; };
+		F558136C292B843600BD8E41 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F558136F292B915D00BD8E41 /* MainTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,8 @@
 		F5581348292B5FB600BD8E41 /* AscaGames */ = {
 			isa = PBXGroup;
 			children = (
+				F558136E292B914300BD8E41 /* Themes */,
+				F558136B292B841E00BD8E41 /* Objects */,
 				F5581361292B739100BD8E41 /* Services */,
 				F558135E292B6E7D00BD8E41 /* Utils */,
 				F5581357292B642400BD8E41 /* Views */,
@@ -109,9 +117,34 @@
 		F5581362292B74FB00BD8E41 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F5581366292B830E00BD8E41 /* Lines */,
 				F5581363292B751800BD8E41 /* CustomTable.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		F5581366292B830E00BD8E41 /* Lines */ = {
+			isa = PBXGroup;
+			children = (
+				F5581369292B835800BD8E41 /* EditUserLine.swift */,
+			);
+			path = Lines;
+			sourceTree = "<group>";
+		};
+		F558136B292B841E00BD8E41 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				F558136C292B843600BD8E41 /* User.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		F558136E292B914300BD8E41 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				F558136F292B915D00BD8E41 /* MainTheme.swift */,
+			);
+			path = Themes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,10 +219,13 @@
 			files = (
 				F558135D292B649800BD8E41 /* UsersView.swift in Sources */,
 				F5581360292B6EA600BD8E41 /* Extensions.swift in Sources */,
+				F558136A292B835800BD8E41 /* EditUserLine.swift in Sources */,
 				F558135B292B646A00BD8E41 /* MatchesView.swift in Sources */,
+				F5581370292B915D00BD8E41 /* MainTheme.swift in Sources */,
 				F5581359292B643F00BD8E41 /* DashBoardView.swift in Sources */,
 				F558134C292B5FB600BD8E41 /* ContentView.swift in Sources */,
 				F558134A292B5FB600BD8E41 /* AscaGamesApp.swift in Sources */,
+				F558136D292B843600BD8E41 /* User.swift in Sources */,
 				F5581364292B751800BD8E41 /* CustomTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

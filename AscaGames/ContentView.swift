@@ -7,16 +7,15 @@
 
 import SwiftUI
 
-
-let customColor = UIColor()
-
 struct ContentView: View {
     
     init() {
-        UITabBar.appearance().backgroundColor = customColor.hexStringToUIColor(hex: "FBBB3A")
+        UITabBar.appearance().backgroundColor = theme.customYellow
+        
     }
     
     var body: some View {
+
         TabView {
             DashBoardView().tabItem {
                 Image(systemName: "house.fill")
@@ -24,8 +23,7 @@ struct ContentView: View {
             }
             MatchesView().tabItem {
                 Image(systemName: "chart.bar.fill")
-                    .renderingMode(.template)
-                    .foregroundColor(.black)
+                    .foregroundColor(.red)
                 Text("Matches")
             }
             UsersView().tabItem {

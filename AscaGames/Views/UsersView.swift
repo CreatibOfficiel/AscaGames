@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct UsersView: View {
+    @State var title = "Users"
     var body: some View {
         VStack {
-            Text("Ping Pong")
+            Text("Ping Pong").foregroundColor(.white)
             Text("All Users")
-            
-            CustomTable()
+            Spacer().frame(height: 60)
+            CustomTable(title: $title)
         }
+        .frame(width: 1000)
+        .background(Color.black)
+        
+
+
     }
 }
 
