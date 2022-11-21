@@ -18,9 +18,6 @@ struct UsersView: View {
         }
         .frame(width: 1000)
         .background(Color.black)
-        
-
-
     }
 }
 

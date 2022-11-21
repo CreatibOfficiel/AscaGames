@@ -12,11 +12,11 @@ struct EditUserLine: View {
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: "person.fill").foregroundColor(.white)
-                Text(user.firstName).foregroundColor(.white)
-                Text(user.lastName.prefix(1) + ".").foregroundColor(.white)
+                Image(systemName: "person.fill").foregroundColor(theme.customYellow)
+                Text(user.firstName).foregroundColor(theme.customYellow)
+                Text(user.lastName.prefix(1) + ".").foregroundColor(theme.customYellow)
                 Spacer()
-                Image(systemName: "pencil.circle.fill").foregroundColor(.white)
+                Image(systemName: "pencil.circle.fill").foregroundColor(theme.customYellow)
                 
             }.padding(5)
             Divider().background(.white)

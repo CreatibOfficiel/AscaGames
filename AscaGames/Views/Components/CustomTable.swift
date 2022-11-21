@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct CustomTable: View {
     
     @Binding var title : String
@@ -19,19 +20,22 @@ struct CustomTable: View {
                 VStack {
                     Text(title)
                 }.frame(width: 300, height: 60)
-                .background(.yellow)
+                .background(theme.customYellow)
                 
                 Spacer()
 
-                EditUserLine(user: $myUser)
+                EditUserLine(user: $myUser).padding(10)
                 Spacer()
                 Text("Button")
                     .frame(width: 300, height: 30)
-                    .background(.yellow)
+                    .background(theme.customYellow)
             }.frame(width: 300, height: 500)
-            .border(Color.yellow, width: 5)
-            
+                .border(theme.customYellow, width: 5)
         }
+    }
+    
+    public func _apply(to shape: inout SwiftUI._ShapeStyle_Shape) {
+        Color.red._apply(to: &shape)  // << here !!
     }
 }
 
