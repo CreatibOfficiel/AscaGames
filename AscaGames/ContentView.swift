@@ -7,15 +7,33 @@
 
 import SwiftUI
 
+
+let customColor = UIColor()
+
 struct ContentView: View {
+    
+    init() {
+        UITabBar.appearance().backgroundColor = customColor.hexStringToUIColor(hex: "FBBB3A")
+    }
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        TabView {
+            DashBoardView().tabItem {
+                Image(systemName: "house.fill")
+                Text("Home")
+            }
+            MatchesView().tabItem {
+                Image(systemName: "chart.bar.fill")
+                    .renderingMode(.template)
+                    .foregroundColor(.black)
+                Text("Matches")
+            }
+            UsersView().tabItem {
+                Image(systemName: "person.3.fill")
+                    .foregroundColor(.black)
+                Text("Users")
+            }
+        }.accentColor(.white)
     }
 }
 

@@ -11,6 +11,11 @@
 		F558134C292B5FB600BD8E41 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F558134B292B5FB600BD8E41 /* ContentView.swift */; };
 		F558134E292B5FBA00BD8E41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F558134D292B5FBA00BD8E41 /* Assets.xcassets */; };
 		F5581351292B5FBA00BD8E41 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5581350292B5FBA00BD8E41 /* Preview Assets.xcassets */; };
+		F5581359292B643F00BD8E41 /* DashBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5581358292B643F00BD8E41 /* DashBoardView.swift */; };
+		F558135B292B646A00BD8E41 /* MatchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F558135A292B646A00BD8E41 /* MatchesView.swift */; };
+		F558135D292B649800BD8E41 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F558135C292B649800BD8E41 /* UsersView.swift */; };
+		F5581360292B6EA600BD8E41 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F558135F292B6EA600BD8E41 /* Extensions.swift */; };
+		F5581364292B751800BD8E41 /* CustomTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5581363292B751800BD8E41 /* CustomTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		F558134B292B5FB600BD8E41 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F558134D292B5FBA00BD8E41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5581350292B5FBA00BD8E41 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F5581358292B643F00BD8E41 /* DashBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardView.swift; sourceTree = "<group>"; };
+		F558135A292B646A00BD8E41 /* MatchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesView.swift; sourceTree = "<group>"; };
+		F558135C292B649800BD8E41 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
+		F558135F292B6EA600BD8E41 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F5581363292B751800BD8E41 /* CustomTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +61,9 @@
 		F5581348292B5FB600BD8E41 /* AscaGames */ = {
 			isa = PBXGroup;
 			children = (
+				F5581361292B739100BD8E41 /* Services */,
+				F558135E292B6E7D00BD8E41 /* Utils */,
+				F5581357292B642400BD8E41 /* Views */,
 				F5581349292B5FB600BD8E41 /* AscaGamesApp.swift */,
 				F558134B292B5FB600BD8E41 /* ContentView.swift */,
 				F558134D292B5FBA00BD8E41 /* Assets.xcassets */,
@@ -65,6 +78,40 @@
 				F5581350292B5FBA00BD8E41 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F5581357292B642400BD8E41 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F5581362292B74FB00BD8E41 /* Components */,
+				F5581358292B643F00BD8E41 /* DashBoardView.swift */,
+				F558135A292B646A00BD8E41 /* MatchesView.swift */,
+				F558135C292B649800BD8E41 /* UsersView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F558135E292B6E7D00BD8E41 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F558135F292B6EA600BD8E41 /* Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F5581361292B739100BD8E41 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F5581362292B74FB00BD8E41 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F5581363292B751800BD8E41 /* CustomTable.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +184,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F558135D292B649800BD8E41 /* UsersView.swift in Sources */,
+				F5581360292B6EA600BD8E41 /* Extensions.swift in Sources */,
+				F558135B292B646A00BD8E41 /* MatchesView.swift in Sources */,
+				F5581359292B643F00BD8E41 /* DashBoardView.swift in Sources */,
 				F558134C292B5FB600BD8E41 /* ContentView.swift in Sources */,
 				F558134A292B5FB600BD8E41 /* AscaGamesApp.swift in Sources */,
+				F5581364292B751800BD8E41 /* CustomTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
