@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct User {
-    let id: UUID
+struct User : Hashable {
+    var id: UUID
     var firstName: String
     var lastName: String
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EditUserLine: View {
-    @Binding var user: User
+    @State var user: User
     var body: some View {
         VStack {
             HStack {
@@ -23,11 +23,5 @@ struct EditUserLine: View {
             
         }
 
-    }
-}
-
-struct EditUserLine_Previews: PreviewProvider {
-    static var previews: some View {
-        EditUserLine(user: .constant(User(id: UUID(), firstName: "FirstName", lastName: "LastName")))
     }
 }

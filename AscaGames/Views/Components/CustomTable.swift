@@ -6,14 +6,15 @@
 //
 
 import SwiftUI
-
+import CoreData
 
 struct CustomTable: View {
+    @Environment(\.managedObjectContext) var Element
+
     
     @Binding var title : String
-    
-    @State var myUser = User(id: UUID(), firstName: "Jean", lastName: "Dupont")
-    
+    @State var data : Array<User>
+
     var body: some View {
         ScrollView {
             VStack {
@@ -24,23 +25,23 @@ struct CustomTable: View {
                 
                 Spacer()
 
-                EditUserLine(user: $myUser).padding(10)
+                ForEach(data, id: \.self) { u in
+                    var myUser = User(id: u.id ?? UUID(), firstName: u.firstName ?? "", lastName: u.lastName ?? "")
+                    EditUserLine(user: myUser).padding(10)
+                }
                 Spacer()
-                Text("Button")
-                    .frame(width: 300, height: 30)
-                    .background(theme.customYellow)
+                Button(action: addUser) {
+                    Text("Button")
+                        .frame(width: 300, height: 30)
+                        .background(theme.customYellow)
+                }
+
             }.frame(width: 300, height: 500)
                 .border(theme.customYellow, width: 5)
         }
     }
     
-    public func _apply(to shape: inout SwiftUI._ShapeStyle_Shape) {
-        Color.red._apply(to: &shape)  // << here !!
-    }
-}
-
-struct CustomTable_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomTable(title: .constant("title"))
+    func addUser() -> Void {
+        
     }
 }

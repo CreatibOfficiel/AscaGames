@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) var context
-    @FetchRequest(entity: Users.entity(), sortDescriptors: []) var users: FetchedResults<User>
     
     init() {
         UITabBar.appearance().backgroundColor = theme.customUIYellow
