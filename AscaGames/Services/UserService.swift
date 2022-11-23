@@ -20,7 +20,9 @@ class UserService {
     }
     
     func addUser(user: User) -> Void {
-        userList.append(user)
+        let isSuccess = UserRepository.addUser(user)
+        
+        print(isSuccess)
     }
 }
 

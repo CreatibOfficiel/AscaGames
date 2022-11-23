@@ -8,9 +8,15 @@
 import SwiftUI
 
 let theme = MainTheme()
+let db = SqliteService.sharedInstance
 
 @main
 struct AscaGamesApp: App {
+    
+    init() {
+        db.createTable()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

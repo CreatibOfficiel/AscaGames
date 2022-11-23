@@ -23,25 +23,29 @@ struct CustomTable: View {
                 }.frame(width: 300, height: 60)
                 .background(theme.customYellow)
                 
-                Spacer()
+                ScrollView {
+                    
+                    
+                    Spacer()
 
-                ForEach(data, id: \.self) { u in
-                    let myUser = User(id: u.id, firstName: u.firstName, lastName: u.lastName)
-                    EditUserLine(user: myUser).padding(10)
+                    ForEach(data, id: \.self) { u in
+                        let myUser = User(id: u.id, firstName: u.firstName, lastName: u.lastName)
+                        EditUserLine(user: myUser).padding(10)
+                    }
+                    Spacer()
+
                 }
-                Spacer()
                 Button(action: addUser) {
                     Text("Button")
                         .frame(width: 300, height: 30)
                         .background(theme.customYellow)
                 }
-
             }.frame(width: 300, height: 500)
                 .border(theme.customYellow, width: 5)
         }
     }
     
     func addUser() -> Void {
-        
+        UserService().addUser(user: User(id: UUID(), firstName: "Jean", lastName: "Dupont4"))
     }
 }

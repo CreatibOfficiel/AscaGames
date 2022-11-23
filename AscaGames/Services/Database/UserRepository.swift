@@ -43,7 +43,7 @@ class UserRepository {
         }
         
         do {
-            try database.run(table.insert(firstName <- userValues.firstName, lastName <- userValues.lastName))
+            try database.run(table.insert(id <- userValues.id ,firstName <- userValues.firstName, lastName <- userValues.lastName))
             return true
         } catch let error {
             print("Insertion failed: \(error)")
