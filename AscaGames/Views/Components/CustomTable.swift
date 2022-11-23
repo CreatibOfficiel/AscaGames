@@ -26,7 +26,7 @@ struct CustomTable: View {
                 Spacer()
 
                 ForEach(data, id: \.self) { u in
-                    var myUser = User(id: u.id ?? UUID(), firstName: u.firstName ?? "", lastName: u.lastName ?? "")
+                    let myUser = User(id: u.id, firstName: u.firstName, lastName: u.lastName)
                     EditUserLine(user: myUser).padding(10)
                 }
                 Spacer()

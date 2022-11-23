@@ -21,6 +21,8 @@
 		F5581E6F292BBC6D00D40034 /* MainTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5581E6E292BBC6D00D40034 /* MainTheme.swift */; };
 		F560FC74292BDE67005E4336 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560FC73292BDE67005E4336 /* UserService.swift */; };
 		F5D3966C292E60590067F2CA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = F5D3966B292E60590067F2CA /* SQLite */; };
+		F5D3966E292E61850067F2CA /* SqliteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D3966D292E61850067F2CA /* SqliteService.swift */; };
+		F5D39671292E64120067F2CA /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D39670292E64120067F2CA /* UserRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		F558136C292B843600BD8E41 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F5581E6E292BBC6D00D40034 /* MainTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTheme.swift; sourceTree = "<group>"; };
 		F560FC73292BDE67005E4336 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		F5D3966D292E61850067F2CA /* SqliteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteService.swift; sourceTree = "<group>"; };
+		F5D39670292E64120067F2CA /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,9 +151,19 @@
 		F560FC72292BDE58005E4336 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F5D3966F292E63AE0067F2CA /* Database */,
 				F560FC73292BDE67005E4336 /* UserService.swift */,
+				F5D3966D292E61850067F2CA /* SqliteService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		F5D3966F292E63AE0067F2CA /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				F5D39670292E64120067F2CA /* UserRepository.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F558135D292B649800BD8E41 /* UsersView.swift in Sources */,
+				F5D3966E292E61850067F2CA /* SqliteService.swift in Sources */,
 				F5581360292B6EA600BD8E41 /* Extensions.swift in Sources */,
 				F558136A292B835800BD8E41 /* EditUserLine.swift in Sources */,
 				F558135B292B646A00BD8E41 /* MatchesView.swift in Sources */,
@@ -237,6 +252,7 @@
 				F560FC74292BDE67005E4336 /* UserService.swift in Sources */,
 				F558134C292B5FB600BD8E41 /* ContentView.swift in Sources */,
 				F558134A292B5FB600BD8E41 /* AscaGamesApp.swift in Sources */,
+				F5D39671292E64120067F2CA /* UserRepository.swift in Sources */,
 				F558136D292B843600BD8E41 /* User.swift in Sources */,
 				F5581364292B751800BD8E41 /* CustomTable.swift in Sources */,
 			);

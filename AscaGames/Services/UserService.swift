@@ -11,11 +11,16 @@ class UserService {
     
     private var userList = [User(id: UUID(), firstName: "Jean", lastName: "Dupont3")]
     
-    func getUsers() -> Array<User> {
-        return userList
+    func getUsers() -> [User] {
+        var users = UserRepository.getUsers()
+        if(users != nil) {
+            return users!
+        }
+        return []
     }
     
     func addUser(user: User) -> Void {
         userList.append(user)
     }
 }
+
