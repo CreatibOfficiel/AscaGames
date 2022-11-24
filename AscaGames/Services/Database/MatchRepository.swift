@@ -12,25 +12,9 @@ class MatchRepository {
     
     static var table = Table("matchs")
     
-    static let id = Expression<UUID>("id")
+    static let idMatch = Expression<UUID>("idMatch")
     static let nbSets = Expression<Int>("nbSets")
-    
-    static func createTable() {
-        guard let database =
-                SqliteService.sharedInstance.database else {
-            print("Datastore connection error")
-            return
-        }
-        
-        do {
-            try database.run(table.create(ifNotExists: true) { table in
-                table.column(id, primaryKey: true)
-                table.column(nbSets)
-            })
-        } catch {
-            print("table already exists: \(error)")
-        }
-    }
+    static let idMatchType = Expression<UUID>("idMatchType")
     
     
     
@@ -41,7 +25,7 @@ class MatchRepository {
         }
         
         do {
-            try database.run(table.insert(id <- matchValues.id ,nbSets <- matchValues.nbSets))
+            try database.run(table.insert(idMatch <- matchValues.idMatch ,nbSets <- matchValues.nbSets, idMatchType <- matchValues.idMatchType))
             return true
         } catch let error {
             print("Insertion failed: \(error)")
@@ -57,7 +41,7 @@ class MatchRepository {
         }
         
         // Extracts the appropriate contact from the table according to the id
-        let match = table.filter(id == matchValues.id).limit(1)
+        let match = table.filter(idMatch == matchValues.idMatch).limit(1)
         
         do {
             // Update the contact's values
@@ -85,21 +69,22 @@ class MatchRepository {
         var matchArray = [Match]()
         
         // Sorting data in descending order by ID
-        table = table.order(id.desc)
+        table = table.order(idMatch.desc)
         
         do {
             for match in try database.prepare(table) {
                 
-                let idValue = match[id]
+                let idMatchValue = match[idMatch]
                 let nbSetsValue = match[nbSets]
+                let idMatchTypeValue = match[idMatchType]
                 
                 // Create object
-                let matchObject = Match(id: idValue, nbSets: nbSetsValue)
+                let matchObject = Match(idMatch: idMatchValue, nbSets: nbSetsValue, idMatchType: idMatchTypeValue)
                 
                 // Add object to an array
                 matchArray.append(matchObject)
                 
-                print("id \(match[id]), nbSets: \(match[nbSets])")
+                print("idMatch \(match[idMatch]), nbSets: \(match[nbSets]), idMatchType \(match[idMatchType])")
             }
         } catch {
             print("Present row error: \(error)")
@@ -115,7 +100,7 @@ class MatchRepository {
         }
         
         do {
-            let match = table.filter(id == matchId).limit(1)
+            let match = table.filter(idMatch == matchId).limit(1)
             try database.run(match.delete())
         } catch {
             print("Delete row error: \(error)")

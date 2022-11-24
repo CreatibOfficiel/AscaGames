@@ -12,28 +12,9 @@ class UserRepository {
     
     static var table = Table("users")
     
-    static let id = Expression<UUID>("id")
+    static let idUser = Expression<UUID>("idUser")
     static let firstName = Expression<String>("firstName")
     static let lastName = Expression<String>("lastName")
-    
-    static func createTable() {
-        guard let database =
-                SqliteService.sharedInstance.database else {
-            print("Datastore connection error")
-            return
-        }
-        
-        do {
-            try database.run(table.create(ifNotExists: true) { table in
-                table.column(id, primaryKey: true)
-                table.column(firstName)
-                table.column(lastName)
-            })
-        } catch {
-            print("table already exists: \(error)")
-        }
-    }
-    
     
     
     static func addUser(_ userValues:User) -> Bool? {
@@ -43,7 +24,7 @@ class UserRepository {
         }
         
         do {
-            try database.run(table.insert(id <- userValues.id ,firstName <- userValues.firstName, lastName <- userValues.lastName))
+            try database.run(table.insert(idUser <- userValues.idUser ,firstName <- userValues.firstName, lastName <- userValues.lastName))
             return true
         } catch let error {
             print("Insertion failed: \(error)")
@@ -59,7 +40,7 @@ class UserRepository {
         }
         
         // Extracts the appropriate contact from the table according to the id
-        let user = table.filter(id == userValues.id).limit(1)
+        let user = table.filter(idUser == userValues.idUser).limit(1)
         
         do {
             // Update the contact's values
@@ -87,22 +68,22 @@ class UserRepository {
         var userArray = [User]()
         
         // Sorting data in descending order by ID
-        table = table.order(id.desc)
+        table = table.order(idUser.desc)
         
         do {
             for user in try database.prepare(table) {
                 
-                let idValue = user[id]
+                let idUserValue = user[idUser]
                 let firstNameValue = user[firstName]
                 let lastNameValue = user[lastName]
                 
                 // Create object
-                let userObject = User(id: idValue, firstName: firstNameValue, lastName: lastNameValue, elo: 1500)
+                let userObject = User(idUser: idUserValue, firstName: firstNameValue, lastName: lastNameValue, elo: 1500)
                 
                 // Add object to an array
                 userArray.append(userObject)
                 
-                print("id \(user[id]), firstName: \(user[firstName]), lastName: \(user[lastName])")
+                print("id \(user[idUser]), firstName: \(user[firstName]), lastName: \(user[lastName])")
             }
         } catch {
             print("Present row error: \(error)")
@@ -118,7 +99,7 @@ class UserRepository {
         }
         
         do {
-            let user = table.filter(id == userId).limit(1)
+            let user = table.filter(idUser == userId).limit(1)
             try database.run(user.delete())
         } catch {
             print("Delete row error: \(error)")

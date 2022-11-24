@@ -12,26 +12,8 @@ class MatchTypeRepository {
     
     static var table = Table("matchType")
     
-    static let id = Expression<UUID>("id")
+    static let idMatchType = Expression<UUID>("idMatchType")
     static let lib = Expression<String>("lib")
-    
-    static func createTable() {
-        guard let database =
-                SqliteService.sharedInstance.database else {
-            print("Datastore connection error")
-            return
-        }
-        
-        do {
-            try database.run(table.create(ifNotExists: true) { table in
-                table.column(id, primaryKey: true)
-                table.column(lib)
-            })
-        } catch {
-            print("table already exists: \(error)")
-        }
-    }
-    
     
     
     static func addMatchType(_ matchTypeValues:MatchType) -> Bool? {
@@ -41,7 +23,7 @@ class MatchTypeRepository {
         }
         
         do {
-            try database.run(table.insert(id <- matchTypeValues.id , lib <- matchTypeValues.lib))
+            try database.run(table.insert(idMatchType <- matchTypeValues.idMatchType , lib <- matchTypeValues.lib))
             return true
         } catch let error {
             print("Insertion failed: \(error)")
@@ -57,7 +39,7 @@ class MatchTypeRepository {
         }
         
         // Extracts the appropriate contact from the table according to the id
-        let matchType = table.filter(id == matchTypeValues.id).limit(1)
+        let matchType = table.filter(idMatchType == matchTypeValues.idMatchType).limit(1)
         
         do {
             // Update the contact's values
@@ -85,21 +67,21 @@ class MatchTypeRepository {
         var matchTypeArray = [MatchType]()
         
         // Sorting data in descending order by ID
-        table = table.order(id.desc)
+        table = table.order(idMatchType.desc)
         
         do {
             for matchType in try database.prepare(table) {
                 
-                let idValue = matchType[id]
+                let idMatchTypeValue = matchType[idMatchType]
                 let libValue = matchType[lib]
                 
                 // Create object
-                let matchTypeObject = MatchType(id: idValue, lib: libValue)
+                let matchTypeObject = MatchType(idMatchType: idMatchTypeValue, lib: libValue)
                 
                 // Add object to an array
                 matchTypeArray.append(matchTypeObject)
                 
-                print("id \(matchType[lib]), lib: \(matchType[lib])")
+                print("id \(matchType[idMatchType]), lib: \(matchType[lib])")
             }
         } catch {
             print("Present row error: \(error)")
@@ -115,7 +97,7 @@ class MatchTypeRepository {
         }
         
         do {
-            let matchType = table.filter(id == matchTypeId).limit(1)
+            let matchType = table.filter(idMatchType == matchTypeId).limit(1)
             try database.run(matchType.delete())
         } catch {
             print("Delete row error: \(error)")
