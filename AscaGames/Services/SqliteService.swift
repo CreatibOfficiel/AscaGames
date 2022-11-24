@@ -33,5 +33,6 @@ class SqliteService {
     func createTable() {
         UserRepository.createTable()
         MatchTypeRepository.createTable()
+        MatchRepository.createTable()
     }
 }

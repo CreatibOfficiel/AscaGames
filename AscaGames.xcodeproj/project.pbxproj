@@ -12,6 +12,9 @@
 		F552E86E292F5EBD00B9E552 /* MatchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E86D292F5EBD00B9E552 /* MatchType.swift */; };
 		F552E870292F5F4B00B9E552 /* MatchTypeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E86F292F5F4B00B9E552 /* MatchTypeRepository.swift */; };
 		F552E872292F619200B9E552 /* MatchTypeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E871292F619200B9E552 /* MatchTypeService.swift */; };
+		F552E874292F63EE00B9E552 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E873292F63EE00B9E552 /* Match.swift */; };
+		F552E876292F64D400B9E552 /* MatchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E875292F64D400B9E552 /* MatchRepository.swift */; };
+		F552E878292F65FF00B9E552 /* MatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E877292F65FF00B9E552 /* MatchService.swift */; };
 		F558134A292B5FB600BD8E41 /* AscaGamesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5581349292B5FB600BD8E41 /* AscaGamesApp.swift */; };
 		F558134C292B5FB600BD8E41 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F558134B292B5FB600BD8E41 /* ContentView.swift */; };
 		F558134E292B5FBA00BD8E41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F558134D292B5FBA00BD8E41 /* Assets.xcassets */; };
@@ -36,6 +39,9 @@
 		F552E86D292F5EBD00B9E552 /* MatchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchType.swift; sourceTree = "<group>"; };
 		F552E86F292F5F4B00B9E552 /* MatchTypeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTypeRepository.swift; sourceTree = "<group>"; };
 		F552E871292F619200B9E552 /* MatchTypeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTypeService.swift; sourceTree = "<group>"; };
+		F552E873292F63EE00B9E552 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		F552E875292F64D400B9E552 /* MatchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchRepository.swift; sourceTree = "<group>"; };
+		F552E877292F65FF00B9E552 /* MatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchService.swift; sourceTree = "<group>"; };
 		F5581346292B5FB600BD8E41 /* AscaGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AscaGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5581349292B5FB600BD8E41 /* AscaGamesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AscaGamesApp.swift; sourceTree = "<group>"; };
 		F558134B292B5FB600BD8E41 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -129,6 +135,7 @@
 			children = (
 				F558136C292B843600BD8E41 /* User.swift */,
 				F552E86D292F5EBD00B9E552 /* MatchType.swift */,
+				F552E873292F63EE00B9E552 /* Match.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -148,6 +155,7 @@
 				F560FC73292BDE67005E4336 /* UserService.swift */,
 				F5D3966D292E61850067F2CA /* SqliteService.swift */,
 				F552E871292F619200B9E552 /* MatchTypeService.swift */,
+				F552E877292F65FF00B9E552 /* MatchService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -157,6 +165,7 @@
 			children = (
 				F5D39670292E64120067F2CA /* UserRepository.swift */,
 				F552E86F292F5F4B00B9E552 /* MatchTypeRepository.swift */,
+				F552E875292F64D400B9E552 /* MatchRepository.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -273,14 +282,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F552E878292F65FF00B9E552 /* MatchService.swift in Sources */,
 				F558135D292B649800BD8E41 /* UsersView.swift in Sources */,
 				F5D3966E292E61850067F2CA /* SqliteService.swift in Sources */,
 				F5581360292B6EA600BD8E41 /* Extensions.swift in Sources */,
 				F558136A292B835800BD8E41 /* EditUserLine.swift in Sources */,
 				F552E86A292F52F000B9E552 /* RankingUserLine.swift in Sources */,
+				F552E876292F64D400B9E552 /* MatchRepository.swift in Sources */,
 				F558135B292B646A00BD8E41 /* MatchesView.swift in Sources */,
 				F5581E6F292BBC6D00D40034 /* MainTheme.swift in Sources */,
 				F552E86E292F5EBD00B9E552 /* MatchType.swift in Sources */,
+				F552E874292F63EE00B9E552 /* Match.swift in Sources */,
 				F5581359292B643F00BD8E41 /* DashBoardView.swift in Sources */,
 				F560FC74292BDE67005E4336 /* UserService.swift in Sources */,
 				F552E870292F5F4B00B9E552 /* MatchTypeRepository.swift in Sources */,
