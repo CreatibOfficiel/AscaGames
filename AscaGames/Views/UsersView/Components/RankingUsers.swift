@@ -1,21 +1,21 @@
 //
-//  CustomTable.swift
+//  RankingUsers.swift
 //  AscaGames
 //
-//  Created by Dylan Jacquet on 21/11/2022.
+//  Created by Dylan Jacquet on 24/11/2022.
 //
 
 import SwiftUI
-import CoreData
 
-struct CustomTable: View {
-    @Environment(\.managedObjectContext) var Element
-
+struct RankingUsers: View {
     
     @Binding var title : String
     @State var data : Array<User>
-
+    
     var body: some View {
+
+
+
         ScrollView {
             VStack {
                 VStack {
@@ -46,6 +46,8 @@ struct CustomTable: View {
     }
     
     func addUser() -> Void {
-        UserService().addUser(user: User(id: UUID(), firstName: "Jean", lastName: "Dupont4"))
+        let newUser = User(id: UUID(), firstName: "Jean", lastName: "Dupont4")
+        UserService().addUser(user: newUser)
+        data.append(newUser)
     }
 }

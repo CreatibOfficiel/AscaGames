@@ -12,7 +12,7 @@ class UserService {
     private var userList = [User(id: UUID(), firstName: "Jean", lastName: "Dupont3")]
     
     func getUsers() -> [User] {
-        var users = UserRepository.getUsers()
+        let users = UserRepository.getUsers()
         if(users != nil) {
             return users!
         }
@@ -22,7 +22,17 @@ class UserService {
     func addUser(user: User) -> Void {
         let isSuccess = UserRepository.addUser(user)
         
-        print(isSuccess)
+        print(isSuccess ?? "")
+    }
+    
+    func updateUser(user: User) -> Void {
+        let isSuccess = UserRepository.updateUser(user)
+        
+        print(isSuccess ?? "")
+    }
+    
+    func deleteUser(id: UUID) -> Void {
+        UserRepository.deleteUser(userId: id)
     }
 }
 

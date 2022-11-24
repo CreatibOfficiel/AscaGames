@@ -11,6 +11,8 @@ struct UsersView: View {
     
     var data: Array<User>
     @State var title = "Users"
+    @State var titleRanking = "Ranking"
+    @State var isRanking = true
     
     init() {
         data = UserService().getUsers()
@@ -23,10 +25,21 @@ struct UsersView: View {
             Text("All Users")
             Spacer().frame(height: 60)
             
-            CustomTable(title: $title, data: data)
+            if(isRanking){
+                RankingUsers(title: $titleRanking, data: data)
+            } else {
+                ModifyUsers(title: $title, data: data)
+            }
+            Button(action: swap) {
+                Text("SwAP ME")
+            }
         }
         .frame(width: 1000)
         .background(Color.black)
+    }
+    
+    func swap() -> Void {
+        isRanking = !isRanking
     }
 }
 
