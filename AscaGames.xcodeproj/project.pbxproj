@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		F552E868292F527A00B9E552 /* RankingUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E867292F527A00B9E552 /* RankingUsers.swift */; };
 		F552E86A292F52F000B9E552 /* RankingUserLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E869292F52F000B9E552 /* RankingUserLine.swift */; };
+		F552E86E292F5EBD00B9E552 /* MatchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E86D292F5EBD00B9E552 /* MatchType.swift */; };
+		F552E870292F5F4B00B9E552 /* MatchTypeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E86F292F5F4B00B9E552 /* MatchTypeRepository.swift */; };
+		F552E872292F619200B9E552 /* MatchTypeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E871292F619200B9E552 /* MatchTypeService.swift */; };
 		F558134A292B5FB600BD8E41 /* AscaGamesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5581349292B5FB600BD8E41 /* AscaGamesApp.swift */; };
 		F558134C292B5FB600BD8E41 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F558134B292B5FB600BD8E41 /* ContentView.swift */; };
 		F558134E292B5FBA00BD8E41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F558134D292B5FBA00BD8E41 /* Assets.xcassets */; };
@@ -30,6 +33,9 @@
 /* Begin PBXFileReference section */
 		F552E867292F527A00B9E552 /* RankingUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingUsers.swift; sourceTree = "<group>"; };
 		F552E869292F52F000B9E552 /* RankingUserLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingUserLine.swift; sourceTree = "<group>"; };
+		F552E86D292F5EBD00B9E552 /* MatchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchType.swift; sourceTree = "<group>"; };
+		F552E86F292F5F4B00B9E552 /* MatchTypeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTypeRepository.swift; sourceTree = "<group>"; };
+		F552E871292F619200B9E552 /* MatchTypeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTypeService.swift; sourceTree = "<group>"; };
 		F5581346292B5FB600BD8E41 /* AscaGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AscaGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5581349292B5FB600BD8E41 /* AscaGamesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AscaGamesApp.swift; sourceTree = "<group>"; };
 		F558134B292B5FB600BD8E41 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -122,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				F558136C292B843600BD8E41 /* User.swift */,
+				F552E86D292F5EBD00B9E552 /* MatchType.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -140,6 +147,7 @@
 				F5D3966F292E63AE0067F2CA /* Database */,
 				F560FC73292BDE67005E4336 /* UserService.swift */,
 				F5D3966D292E61850067F2CA /* SqliteService.swift */,
+				F552E871292F619200B9E552 /* MatchTypeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -148,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				F5D39670292E64120067F2CA /* UserRepository.swift */,
+				F552E86F292F5F4B00B9E552 /* MatchTypeRepository.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -271,8 +280,11 @@
 				F552E86A292F52F000B9E552 /* RankingUserLine.swift in Sources */,
 				F558135B292B646A00BD8E41 /* MatchesView.swift in Sources */,
 				F5581E6F292BBC6D00D40034 /* MainTheme.swift in Sources */,
+				F552E86E292F5EBD00B9E552 /* MatchType.swift in Sources */,
 				F5581359292B643F00BD8E41 /* DashBoardView.swift in Sources */,
 				F560FC74292BDE67005E4336 /* UserService.swift in Sources */,
+				F552E870292F5F4B00B9E552 /* MatchTypeRepository.swift in Sources */,
+				F552E872292F619200B9E552 /* MatchTypeService.swift in Sources */,
 				F558134C292B5FB600BD8E41 /* ContentView.swift in Sources */,
 				F558134A292B5FB600BD8E41 /* AscaGamesApp.swift in Sources */,
 				F5D39671292E64120067F2CA /* UserRepository.swift in Sources */,

@@ -1,20 +1,19 @@
 //
-//  SqliteCommands.swift
+//  MatchTypeRepository.swift
 //  AscaGames
 //
-//  Created by Dylan Jacquet on 23/11/2022.
+//  Created by Dylan Jacquet on 24/11/2022.
 //
 
 import Foundation
 import SQLite
 
-class UserRepository {
+class MatchTypeRepository {
     
-    static var table = Table("users")
+    static var table = Table("matchType")
     
     static let id = Expression<UUID>("id")
-    static let firstName = Expression<String>("firstName")
-    static let lastName = Expression<String>("lastName")
+    static let lib = Expression<String>("lib")
     
     static func createTable() {
         guard let database =
@@ -26,8 +25,7 @@ class UserRepository {
         do {
             try database.run(table.create(ifNotExists: true) { table in
                 table.column(id, primaryKey: true)
-                table.column(firstName)
-                table.column(lastName)
+                table.column(lib)
             })
         } catch {
             print("table already exists: \(error)")
@@ -36,14 +34,14 @@ class UserRepository {
     
     
     
-    static func addUser(_ userValues:User) -> Bool? {
+    static func addMatchType(_ matchTypeValues:MatchType) -> Bool? {
         guard let database = SqliteService.sharedInstance.database else {
             print("Datastore connection error")
             return nil
         }
         
         do {
-            try database.run(table.insert(id <- userValues.id ,firstName <- userValues.firstName, lastName <- userValues.lastName))
+            try database.run(table.insert(id <- matchTypeValues.id , lib <- matchTypeValues.lib))
             return true
         } catch let error {
             print("Insertion failed: \(error)")
@@ -52,22 +50,22 @@ class UserRepository {
     }
     
     // Updating Row
-    static func updateUser(_ userValues: User) -> Bool? {
+    static func updateMatchType(_ matchTypeValues: MatchType) -> Bool? {
         guard let database = SqliteService.sharedInstance.database else {
             print("Datastore connection error")
             return nil
         }
         
         // Extracts the appropriate contact from the table according to the id
-        let user = table.filter(id == userValues.id).limit(1)
+        let matchType = table.filter(id == matchTypeValues.id).limit(1)
         
         do {
             // Update the contact's values
-            if try database.run(user.update(firstName <- userValues.firstName, lastName <- userValues.lastName)) > 0 {
-                print("Updated user")
+            if try database.run(matchType.update(lib <- matchTypeValues.lib)) > 0 {
+                print("Updated contact")
                 return true
             } else {
-                print("Could not update user: user not found")
+                print("Could not update contact: contact not found")
                 return false
             }
         } catch let error {
@@ -77,49 +75,48 @@ class UserRepository {
     }
     
     // Present Rows
-    static func getUsers() -> [User]? {
+    static func getMatchTypes() -> [MatchType]? {
         guard let database = SqliteService.sharedInstance.database else {
             print("Datastore connection error")
             return nil
         }
         
         // Contact Array
-        var userArray = [User]()
+        var matchTypeArray = [MatchType]()
         
         // Sorting data in descending order by ID
         table = table.order(id.desc)
         
         do {
-            for user in try database.prepare(table) {
+            for matchType in try database.prepare(table) {
                 
-                let idValue = user[id]
-                let firstNameValue = user[firstName]
-                let lastNameValue = user[lastName]
+                let idValue = matchType[id]
+                let libValue = matchType[lib]
                 
                 // Create object
-                let userObject = User(id: idValue, firstName: firstNameValue, lastName: lastNameValue, elo: 1500)
+                let matchTypeObject = MatchType(id: idValue, lib: libValue)
                 
                 // Add object to an array
-                userArray.append(userObject)
+                matchTypeArray.append(matchTypeObject)
                 
-                print("id \(user[id]), firstName: \(user[firstName]), lastName: \(user[lastName])")
+                print("id \(matchType[lib]), lib: \(matchType[lib])")
             }
         } catch {
             print("Present row error: \(error)")
         }
-        return userArray
+        return matchTypeArray
     }
     
     // Delete Row
-    static func deleteUser(userId: UUID) {
+    static func deleteMatchType(matchTypeId: UUID) {
         guard let database = SqliteService.sharedInstance.database else {
             print("Datastore connection error")
             return
         }
         
         do {
-            let user = table.filter(id == userId).limit(1)
-            try database.run(user.delete())
+            let matchType = table.filter(id == matchTypeId).limit(1)
+            try database.run(matchType.delete())
         } catch {
             print("Delete row error: \(error)")
         }

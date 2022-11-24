@@ -11,4 +11,5 @@ struct User : Hashable {
     var id: UUID
     var firstName: String
     var lastName: String
+    var elo: Int
 }

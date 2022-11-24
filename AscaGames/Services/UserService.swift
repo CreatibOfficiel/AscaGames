@@ -9,7 +9,7 @@ import Foundation
 
 class UserService {
     
-    private var userList = [User(id: UUID(), firstName: "Jean", lastName: "Dupont3")]
+    private var userList = [User(id: UUID(), firstName: "Jean", lastName: "Dupont3", elo: 1500)]
     
     func getUsers() -> [User] {
         let users = UserRepository.getUsers()
