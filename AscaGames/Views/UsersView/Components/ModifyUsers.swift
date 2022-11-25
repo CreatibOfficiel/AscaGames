@@ -39,7 +39,7 @@ struct ModifyUsers: View {
                     .background(theme.customYellow)
                 
                 ScrollView {
-                    NavigationLink(destination: AddUserView()) {
+                    NavigationLink(destination: AddUserView(refreshView: addUserAndRefreshView)) {
                         HStack () {
                             Image(systemName: "person.badge.plus.fill")
                                 .foregroundColor(.white)
@@ -82,13 +82,15 @@ struct ModifyUsers: View {
         } else {
             return data.filter { $0.firstName.contains(searchText) }
         }
+    }
+    
     func deleteUserAndRefreshView(user: User) -> Void {
         data.removeAll(where: { user.idUser == $0.idUser })
         refreshParent()
     }
     
     func updateUserAndRefreshView(user: User) -> Void {
-        var index = data.firstIndex(where: { user.idUser == $0.idUser })
+        let index = data.firstIndex(where: { user.idUser == $0.idUser })
         data[index!] = user
         refreshParent()
     }
