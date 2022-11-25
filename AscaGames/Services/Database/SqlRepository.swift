@@ -76,11 +76,12 @@ class SqlRepository {
             
             //Play
             try database.run(PlayTable.create(ifNotExists: true) { playTable in
-                playTable.column(idUser, primaryKey: true)
-                playTable.column(idMatch, primaryKey: true)
+                playTable.column(idUser)
+                playTable.column(idMatch)
                 playTable.column(isWinner)
                 playTable.foreignKey(idUser, references: usersTable, idUser)
                 playTable.foreignKey(idMatch, references: matchsTable, idMatch)
+                playTable.primaryKey(idUser, idMatch)
             })
             
         } catch {
