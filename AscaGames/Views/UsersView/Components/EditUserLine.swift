@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EditUserLine: View {
     @State var user: User
+    
     var body: some View {
         VStack {
             HStack {
@@ -16,12 +17,11 @@ struct EditUserLine: View {
                 Text(user.firstName).foregroundColor(theme.customYellow)
                 Text(user.lastName.prefix(1) + ".").foregroundColor(theme.customYellow)
                 Spacer()
-                Image(systemName: "pencil.circle.fill").foregroundColor(theme.customYellow)
-                
+                NavigationLink(destination: ModifyUserView(user: user)) {
+                    Image(systemName: "pencil.circle.fill").foregroundColor(theme.customYellow)
+                }
             }.padding(5)
             Divider().background(.white)
-            
         }
-
     }
 }

@@ -20,22 +20,28 @@ struct UsersView: View {
     
     
     var body: some View {
-        VStack {
-            Text("Ping Pong").foregroundColor(.white)
-            Text("All Users")
-            Spacer().frame(height: 60)
-            
-            if(isRanking){
-                RankingUsers(title: $titleRanking, data: data)
-            } else {
-                ModifyUsers(title: $title, data: data)
+        NavigationView {
+            VStack(spacing: 0) {
+                Text("PING PONG")
+                    .font(.system(size: 34, weight: .heavy))
+                    .foregroundColor(theme.customYellow)
+                Divider().frame(width: 230, height: 2).overlay(.white)
+                Text(isRanking ? "ALL USERS" : "SELECT USER").foregroundColor(.white)
+                Spacer().frame(height: 60)
+                
+                if(isRanking){
+                    RankingUsers(title: $titleRanking, data: data)
+                } else {
+                    ModifyUsers(title: $title, data: data)
+                }
+                
+                Button(action: swap) {
+                    Text("SWAP VIEW")
+                }
             }
-            Button(action: swap) {
-                Text("SwAP ME")
-            }
+            .frame(width: 1000)
+            .background(Color.black)
         }
-        .frame(width: 1000)
-        .background(Color.black)
     }
     
     func swap() -> Void {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB1CA9D9292F725D00FC3CF2 /* ModifyUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1CA9D8292F725D00FC3CF2 /* ModifyUserView.swift */; };
+		BB28D292292FFE8400203096 /* AddUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB28D291292FFE8400203096 /* AddUserView.swift */; };
 		F552E868292F527A00B9E552 /* RankingUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E867292F527A00B9E552 /* RankingUsers.swift */; };
 		F552E86A292F52F000B9E552 /* RankingUserLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E869292F52F000B9E552 /* RankingUserLine.swift */; };
 		F558134A292B5FB600BD8E41 /* AscaGamesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5581349292B5FB600BD8E41 /* AscaGamesApp.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB1CA9D8292F725D00FC3CF2 /* ModifyUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyUserView.swift; sourceTree = "<group>"; };
+		BB28D291292FFE8400203096 /* AddUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserView.swift; sourceTree = "<group>"; };
 		F552E867292F527A00B9E552 /* RankingUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingUsers.swift; sourceTree = "<group>"; };
 		F552E869292F52F000B9E552 /* RankingUserLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingUserLine.swift; sourceTree = "<group>"; };
 		F5581346292B5FB600BD8E41 /* AscaGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AscaGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +161,8 @@
 			children = (
 				F5D39673292E77620067F2CA /* Components */,
 				F558135C292B649800BD8E41 /* UsersView.swift */,
+				BB1CA9D8292F725D00FC3CF2 /* ModifyUserView.swift */,
+				BB28D291292FFE8400203096 /* AddUserView.swift */,
 			);
 			path = UsersView;
 			sourceTree = "<group>";
@@ -265,6 +271,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F558135D292B649800BD8E41 /* UsersView.swift in Sources */,
+				BB1CA9D9292F725D00FC3CF2 /* ModifyUserView.swift in Sources */,
+				BB28D292292FFE8400203096 /* AddUserView.swift in Sources */,
 				F5D3966E292E61850067F2CA /* SqliteService.swift in Sources */,
 				F5581360292B6EA600BD8E41 /* Extensions.swift in Sources */,
 				F558136A292B835800BD8E41 /* EditUserLine.swift in Sources */,

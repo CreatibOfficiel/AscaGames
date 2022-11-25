@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import UIKit
 
 extension UIColor {
@@ -29,5 +30,30 @@ extension UIColor {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+}
+
+extension View {
+    func placeholder<Content: View>(
+        when shouldShow: Bool,
+        alignment: Alignment = .leading,
+        @ViewBuilder placeholder: () -> Content) -> some View {
+
+        ZStack(alignment: alignment) {
+            placeholder().opacity(shouldShow ? 1 : 0)
+            self
+        }
+    }
+}
+
+extension UIView {
+    func cornerRadius(usingCorners corners: UIRectCorner, cornerRadii: CGSize) {
+        let path = UIBezierPath(roundedRect: self.bounds,
+                                byRoundingCorners: corners,
+                                cornerRadii: cornerRadii)
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        
+        self.layer.mask = maskLayer
     }
 }

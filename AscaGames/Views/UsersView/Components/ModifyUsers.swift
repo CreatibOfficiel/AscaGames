@@ -19,25 +19,31 @@ struct ModifyUsers: View {
                 VStack {
                     Text(title)
                 }.frame(width: 300, height: 60)
-                .background(theme.customYellow)
+                .background()
                 
                 ScrollView {
-                    
-                    
                     Spacer()
-
                     ForEach(data, id: \.self) { u in
                         let myUser = User(id: u.id, firstName: u.firstName, lastName: u.lastName)
                         EditUserLine(user: myUser).padding(10)
                     }
                     Spacer()
-
                 }
-                Button(action: addUser) {
-                    Text("Button")
-                        .frame(width: 300, height: 30)
-                        .background(theme.customYellow)
+                
+                VStack {
+                    NavigationLink(destination: AddUserView()) {
+                        Text("+   N E W   U S E R")
+                            .padding()
+                            .frame(width: 250)
+                            .background(theme.customYellow)
+                            .clipShape(Capsule())
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 30).stroke(.white, lineWidth: 2)
+                            )
+                    }.padding([.top,.bottom], 10)
                 }
+                .frame(maxWidth: .infinity)
+                .background(theme.customYellow)
             }.frame(width: 300, height: 500)
                 .border(theme.customYellow, width: 5)
         }
