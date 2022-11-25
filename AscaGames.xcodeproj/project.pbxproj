@@ -32,6 +32,9 @@
 		F560FC74292BDE67005E4336 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560FC73292BDE67005E4336 /* UserService.swift */; };
 		F561F3FB2930A70E009991C5 /* MatchSetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F3FA2930A70E009991C5 /* MatchSetService.swift */; };
 		F561F3FD2930A88A009991C5 /* MatchSetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F3FC2930A88A009991C5 /* MatchSetRepository.swift */; };
+		F561F3FF2930AEB9009991C5 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F3FE2930AEB9009991C5 /* Play.swift */; };
+		F561F4012930B07D009991C5 /* PlayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F4002930B07D009991C5 /* PlayService.swift */; };
+		F561F4032930B08B009991C5 /* PlayRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F4022930B08B009991C5 /* PlayRepository.swift */; };
 		F5D3966C292E60590067F2CA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = F5D3966B292E60590067F2CA /* SQLite */; };
 		F5D3966E292E61850067F2CA /* SqliteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D3966D292E61850067F2CA /* SqliteService.swift */; };
 		F5D39671292E64120067F2CA /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D39670292E64120067F2CA /* UserRepository.swift */; };
@@ -64,6 +67,9 @@
 		F560FC73292BDE67005E4336 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		F561F3FA2930A70E009991C5 /* MatchSetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSetService.swift; sourceTree = "<group>"; };
 		F561F3FC2930A88A009991C5 /* MatchSetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSetRepository.swift; sourceTree = "<group>"; };
+		F561F3FE2930AEB9009991C5 /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
+		F561F4002930B07D009991C5 /* PlayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayService.swift; sourceTree = "<group>"; };
+		F561F4022930B08B009991C5 /* PlayRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRepository.swift; sourceTree = "<group>"; };
 		F5D3966D292E61850067F2CA /* SqliteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteService.swift; sourceTree = "<group>"; };
 		F5D39670292E64120067F2CA /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +151,7 @@
 				F552E86D292F5EBD00B9E552 /* MatchType.swift */,
 				F552E873292F63EE00B9E552 /* Match.swift */,
 				F552E87B292F76A200B9E552 /* MatchSet.swift */,
+				F561F3FE2930AEB9009991C5 /* Play.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -166,6 +173,7 @@
 				F552E871292F619200B9E552 /* MatchTypeService.swift */,
 				F552E877292F65FF00B9E552 /* MatchService.swift */,
 				F561F3FA2930A70E009991C5 /* MatchSetService.swift */,
+				F561F4002930B07D009991C5 /* PlayService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -178,6 +186,7 @@
 				F552E875292F64D400B9E552 /* MatchRepository.swift */,
 				F552E879292F6F9100B9E552 /* SqlRepository.swift */,
 				F561F3FC2930A88A009991C5 /* MatchSetRepository.swift */,
+				F561F4022930B08B009991C5 /* PlayRepository.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -302,7 +311,10 @@
 				F558136A292B835800BD8E41 /* EditUserLine.swift in Sources */,
 				F552E86A292F52F000B9E552 /* RankingUserLine.swift in Sources */,
 				F552E876292F64D400B9E552 /* MatchRepository.swift in Sources */,
+				F561F4012930B07D009991C5 /* PlayService.swift in Sources */,
+				F561F4032930B08B009991C5 /* PlayRepository.swift in Sources */,
 				F558135B292B646A00BD8E41 /* MatchesView.swift in Sources */,
+				F561F3FF2930AEB9009991C5 /* Play.swift in Sources */,
 				F5581E6F292BBC6D00D40034 /* MainTheme.swift in Sources */,
 				F552E86E292F5EBD00B9E552 /* MatchType.swift in Sources */,
 				F552E874292F63EE00B9E552 /* Match.swift in Sources */,

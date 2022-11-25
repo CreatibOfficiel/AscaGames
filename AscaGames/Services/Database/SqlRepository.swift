@@ -14,6 +14,7 @@ class SqlRepository {
     static var matchTypesTable = Table("matchTypes")
     static var matchsTable = Table("matchs")
     static var matchSetsTable = Table("matchSets")
+    static var PlayTable = Table("plays")
     
     static let idUser = Expression<UUID>("idUser")
     static let idMatchType = Expression<UUID>("idMatchType")
@@ -31,6 +32,8 @@ class SqlRepository {
     static let numSet = Expression<Int>("numSet")
     static let scoreTL = Expression<Int>("scoreTL")
     static let scoreTR = Expression<Int>("scoreTR")
+    //Play
+    static let isWinner = Expression<Bool>("isWinner")
     
     
     static func createTables() {
@@ -41,6 +44,7 @@ class SqlRepository {
         }
         
         do {
+            dropTables()
             
             //User
             try database.run(usersTable.create(ifNotExists: true) { usersTable in
@@ -68,6 +72,15 @@ class SqlRepository {
                 matchSetsTable.column(idMatchSet, primaryKey: true)
                 matchSetsTable.column(idMatch)
                 matchSetsTable.foreignKey(idMatch, references: matchsTable, idMatch, delete: .setNull)
+            })
+            
+            //Play
+            try database.run(PlayTable.create(ifNotExists: true) { playTable in
+                playTable.column(idUser, primaryKey: true)
+                playTable.column(idMatch, primaryKey: true)
+                playTable.column(isWinner)
+                playTable.foreignKey(idUser, references: usersTable, idUser)
+                playTable.foreignKey(idMatch, references: matchsTable, idMatch)
             })
             
         } catch {
