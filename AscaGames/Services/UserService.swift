@@ -8,9 +8,7 @@
 import Foundation
 
 class UserService {
-    
-    private var userList = [User(id: UUID(), firstName: "Jean", lastName: "Dupont3")]
-    
+        
     func getUsers() -> [User] {
         let users = UserRepository.getUsers()
         if(users != nil) {

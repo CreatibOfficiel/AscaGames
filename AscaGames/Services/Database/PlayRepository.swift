@@ -1,30 +1,31 @@
 //
-//  SqliteCommands.swift
+//  PlayRepository.swift
 //  AscaGames
 //
-//  Created by Dylan Jacquet on 23/11/2022.
+//  Created by Dylan Jacquet on 25/11/2022.
 //
 
 import Foundation
 import SQLite
 
-class UserRepository {
+class PlayRepository {
     
-    static var table = Table("users")
+    static var table = Table("plays")
     
     static let idUser = Expression<UUID>("idUser")
-    static let firstName = Expression<String>("firstName")
-    static let lastName = Expression<String>("lastName")
+    static let idMatch = Expression<UUID>("idMatch")
+    static let isWinner = Expression<Bool>("isWinner")
     
     
-    static func addUser(_ userValues:User) -> Bool? {
+    
+    static func addPlay(_ playValues:Play) -> Bool? {
         guard let database = SqliteService.sharedInstance.database else {
             print("Datastore connection error")
             return nil
         }
         
         do {
-            try database.run(table.insert(idUser <- userValues.idUser, firstName <- userValues.firstName, lastName <- userValues.lastName))
+            try database.run(table.insert(idUser <- playValues.idUser, idMatch <- playValues.idMatch, isWinner <- playValues.isWinner))
             return true
         } catch let error {
             print("Insertion failed: \(error)")
@@ -33,22 +34,22 @@ class UserRepository {
     }
     
     // Updating Row
-    static func updateUser(_ userValues: User) -> Bool? {
+    static func updatePlay(_ playValues: Play) -> Bool? {
         guard let database = SqliteService.sharedInstance.database else {
             print("Datastore connection error")
             return nil
         }
         
         // Extracts the appropriate contact from the table according to the id
-        let user = table.filter(idUser == userValues.idUser).limit(1)
+        let play = table.filter(idUser == playValues.idUser && idMatch == playValues.idMatch).limit(1)
         
         do {
             // Update the contact's values
-            if try database.run(user.update(firstName <- userValues.firstName, lastName <- userValues.lastName)) > 0 {
-                print("Updated user")
+            if try database.run(play.update(isWinner <- playValues.isWinner)) > 0 {
+                print("Updated play")
                 return true
             } else {
-                print("Could not update user: user not found")
+                print("Could not update play: play not found")
                 return false
             }
         } catch let error {
@@ -58,52 +59,51 @@ class UserRepository {
     }
     
     // Present Rows
-    static func getUsers() -> [User]? {
+    static func getPlays() -> [Play]? {
         guard let database = SqliteService.sharedInstance.database else {
             print("Datastore connection error")
             return nil
         }
         
         // Contact Array
-        var userArray = [User]()
+        var playArray = [Play]()
         
         // Sorting data in descending order by ID
-        table = table.order(idUser.desc)
+        table = table.order(idMatch.desc)
         
         do {
-            for user in try database.prepare(table) {
+            for play in try database.prepare(table) {
                 
-                let idUserValue = user[idUser]
-                let firstNameValue = user[firstName]
-                let lastNameValue = user[lastName]
+                let idUserValue = play[idUser]
+                let idMatchValue = play[idMatch]
+                let isWinnerValue = play[isWinner]
                 
                 // Create object
-                let userObject = User(idUser: idUserValue, firstName: firstNameValue, lastName: lastNameValue, elo: 1500)
+                let playObject = Play(idUser: idUserValue, idMatch: idMatchValue, isWinner: isWinnerValue)
                 
                 // Add object to an array
-                userArray.append(userObject)
+                playArray.append(playObject)
                 
-                print("id \(user[idUser]), firstName: \(user[firstName]), lastName: \(user[lastName])")
+                print("idUser \(play[idUser]), idMatch: \(play[idMatch]), isWinner \(play[isWinner])")
             }
         } catch {
             print("Present row error: \(error)")
         }
-        return userArray
+        return playArray
     }
     
     // Delete Row
-    static func deleteUser(userId: UUID) {
+    static func deletePlay(UserId: UUID, MatchId: UUID) {
         guard let database = SqliteService.sharedInstance.database else {
             print("Datastore connection error")
             return
         }
         
         do {
-            let user = table.filter(idUser == userId).limit(1)
-            try database.run(user.delete())
+            let play = table.filter(idUser == UserId && idMatch == MatchId).limit(1)
+            try database.run(play.delete())
         } catch {
             print("Delete row error: \(error)")
         }
     }
-    
 }

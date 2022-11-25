@@ -29,7 +29,7 @@ struct RankingUsers: View {
                     Spacer()
 
                     ForEach(data, id: \.self) { u in
-                        let myUser = User(id: u.id, firstName: u.firstName, lastName: u.lastName)
+                        let myUser = User(idUser: u.idUser, firstName: u.firstName, lastName: u.lastName, elo: u.elo)
                         EditUserLine(user: myUser).padding(10)
                     }
                     Spacer()
@@ -46,7 +46,7 @@ struct RankingUsers: View {
     }
     
     func addUser() -> Void {
-        let newUser = User(id: UUID(), firstName: "Jean", lastName: "Dupont4")
+        let newUser = User(idUser: UUID(), firstName: "Jean", lastName: "Dupont4", elo: 1500)
         UserService().addUser(user: newUser)
         data.append(newUser)
     }

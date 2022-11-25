@@ -1,30 +1,31 @@
 //
-//  SqliteCommands.swift
+//  MatchRepository.swift
 //  AscaGames
 //
-//  Created by Dylan Jacquet on 23/11/2022.
+//  Created by Dylan Jacquet on 24/11/2022.
 //
 
 import Foundation
 import SQLite
 
-class UserRepository {
+class MatchRepository {
     
-    static var table = Table("users")
+    static var table = Table("matchs")
     
-    static let idUser = Expression<UUID>("idUser")
-    static let firstName = Expression<String>("firstName")
-    static let lastName = Expression<String>("lastName")
+    static let idMatch = Expression<UUID>("idMatch")
+    static let nbSets = Expression<Int>("nbSets")
+    static let idMatchType = Expression<UUID>("idMatchType")
     
     
-    static func addUser(_ userValues:User) -> Bool? {
+    
+    static func addMatch(_ matchValues:Match) -> Bool? {
         guard let database = SqliteService.sharedInstance.database else {
             print("Datastore connection error")
             return nil
         }
         
         do {
-            try database.run(table.insert(idUser <- userValues.idUser, firstName <- userValues.firstName, lastName <- userValues.lastName))
+            try database.run(table.insert(idMatch <- matchValues.idMatch, nbSets <- matchValues.nbSets, idMatchType <- matchValues.idMatchType))
             return true
         } catch let error {
             print("Insertion failed: \(error)")
@@ -33,22 +34,22 @@ class UserRepository {
     }
     
     // Updating Row
-    static func updateUser(_ userValues: User) -> Bool? {
+    static func updateMatch(_ matchValues: Match) -> Bool? {
         guard let database = SqliteService.sharedInstance.database else {
             print("Datastore connection error")
             return nil
         }
         
         // Extracts the appropriate contact from the table according to the id
-        let user = table.filter(idUser == userValues.idUser).limit(1)
+        let match = table.filter(idMatch == matchValues.idMatch).limit(1)
         
         do {
             // Update the contact's values
-            if try database.run(user.update(firstName <- userValues.firstName, lastName <- userValues.lastName)) > 0 {
-                print("Updated user")
+            if try database.run(match.update(nbSets <- matchValues.nbSets)) > 0 {
+                print("Updated match")
                 return true
             } else {
-                print("Could not update user: user not found")
+                print("Could not update match: match not found")
                 return false
             }
         } catch let error {
@@ -58,52 +59,53 @@ class UserRepository {
     }
     
     // Present Rows
-    static func getUsers() -> [User]? {
+    static func getMatchs() -> [Match]? {
         guard let database = SqliteService.sharedInstance.database else {
             print("Datastore connection error")
             return nil
         }
         
         // Contact Array
-        var userArray = [User]()
+        var matchArray = [Match]()
         
         // Sorting data in descending order by ID
-        table = table.order(idUser.desc)
+        table = table.order(idMatch.desc)
         
         do {
-            for user in try database.prepare(table) {
+            for match in try database.prepare(table) {
                 
-                let idUserValue = user[idUser]
-                let firstNameValue = user[firstName]
-                let lastNameValue = user[lastName]
+                let idMatchValue = match[idMatch]
+                let nbSetsValue = match[nbSets]
+                let idMatchTypeValue = match[idMatchType]
                 
                 // Create object
-                let userObject = User(idUser: idUserValue, firstName: firstNameValue, lastName: lastNameValue, elo: 1500)
+                let matchObject = Match(idMatch: idMatchValue, nbSets: nbSetsValue, idMatchType: idMatchTypeValue)
                 
                 // Add object to an array
-                userArray.append(userObject)
+                matchArray.append(matchObject)
                 
-                print("id \(user[idUser]), firstName: \(user[firstName]), lastName: \(user[lastName])")
+                print("idMatch \(match[idMatch]), nbSets: \(match[nbSets]), idMatchType \(match[idMatchType])")
             }
         } catch {
             print("Present row error: \(error)")
         }
-        return userArray
+        return matchArray
     }
     
     // Delete Row
-    static func deleteUser(userId: UUID) {
+    static func deleteMatch(matchId: UUID) {
         guard let database = SqliteService.sharedInstance.database else {
             print("Datastore connection error")
             return
         }
         
         do {
-            let user = table.filter(idUser == userId).limit(1)
-            try database.run(user.delete())
+            let match = table.filter(idMatch == matchId).limit(1)
+            try database.run(match.delete())
         } catch {
             print("Delete row error: \(error)")
         }
     }
     
 }
+

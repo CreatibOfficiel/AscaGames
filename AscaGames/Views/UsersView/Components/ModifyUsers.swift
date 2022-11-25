@@ -24,7 +24,7 @@ struct ModifyUsers: View {
                 ScrollView {
                     Spacer()
                     ForEach(data, id: \.self) { u in
-                        let myUser = User(id: u.id, firstName: u.firstName, lastName: u.lastName)
+                        let myUser = User(idUser: u.idUser, firstName: u.firstName, lastName: u.lastName, elo: 1500)
                         EditUserLine(user: myUser).padding(10)
                     }
                     Spacer()
@@ -50,7 +50,7 @@ struct ModifyUsers: View {
     }
     
     func addUser() -> Void {
-        let newUser = User(id: UUID(), firstName: "Jean", lastName: "Dupont4")
+        let newUser = User(idUser: UUID(), firstName: "Jean", lastName: "Dupont4", elo: 1500)
         UserService().addUser(user: newUser)
         data.append(newUser)
     }

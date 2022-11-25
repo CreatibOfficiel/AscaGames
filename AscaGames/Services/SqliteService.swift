@@ -31,6 +31,6 @@ class SqliteService {
     }
     
     func createTable() {
-        UserRepository.createTable()
+        SqlRepository.createTables()
     }
 }
