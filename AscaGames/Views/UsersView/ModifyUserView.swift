@@ -12,6 +12,8 @@ struct ModifyUserView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State var user: User
+    @State var updateUser: (User) -> Void
+    @State var deleteUser: (User) -> Void
     
     var body: some View {
         VStack(spacing: 0) {
@@ -78,12 +80,14 @@ struct ModifyUserView: View {
     func save() -> Void {
         if (user.firstName != "" && user.lastName != "") {
             UserService().updateUser(user: user)
+            updateUser(user)
             self.presentationMode.wrappedValue.dismiss()
         }
     }
     
     func delete() -> Void {
         UserService().deleteUser(id: user.idUser)
+        deleteUser(user)
         self.presentationMode.wrappedValue.dismiss()
     }
 }

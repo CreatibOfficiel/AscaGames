@@ -12,6 +12,8 @@ struct ModifyUsers: View {
     
     @Binding var title : String
     @State var data : Array<User>
+    @State var refreshParent: () -> Void
+
 
     var body: some View {
         ScrollView {
@@ -25,13 +27,13 @@ struct ModifyUsers: View {
                     Spacer()
                     ForEach(data, id: \.self) { u in
                         let myUser = User(idUser: u.idUser, firstName: u.firstName, lastName: u.lastName, elo: 1500)
-                        EditUserLine(user: myUser).padding(10)
+                        EditUserLine(user: myUser, updateUser: updateUserAndRefreshView, deleteUser: deleteUserAndRefreshView).padding(10)
                     }
                     Spacer()
                 }
                 
                 VStack {
-                    NavigationLink(destination: AddUserView()) {
+                    NavigationLink(destination: AddUserView(refreshView: addUserAndRefreshView)) {
                         Text("+   N E W   U S E R")
                             .padding()
                             .frame(width: 250)
@@ -49,9 +51,19 @@ struct ModifyUsers: View {
         }
     }
     
-    func addUser() -> Void {
-        let newUser = User(idUser: UUID(), firstName: "Jean", lastName: "Dupont4", elo: 1500)
-        UserService().addUser(user: newUser)
-        data.append(newUser)
+    func deleteUserAndRefreshView(user: User) -> Void {
+        data.removeAll(where: { user.idUser == $0.idUser })
+        refreshParent()
+    }
+    
+    func updateUserAndRefreshView(user: User) -> Void {
+        var index = data.firstIndex(where: { user.idUser == $0.idUser })
+        data[index!] = user
+        refreshParent()
+    }
+    
+    func addUserAndRefreshView(user: User) -> Void {
+        data.append(user)
+        refreshParent()
     }
 }

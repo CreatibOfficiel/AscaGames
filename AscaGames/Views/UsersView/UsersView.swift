@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct UsersView: View {
+    var tableView = UITableView()
     
-    var data: Array<User>
+    @State var data: Array<User>
     @State var title = "Users"
     @State var titleRanking = "Ranking"
     @State var isRanking = true
@@ -32,7 +33,7 @@ struct UsersView: View {
                 if(isRanking){
                     RankingUsers(title: $titleRanking, data: data)
                 } else {
-                    ModifyUsers(title: $title, data: data)
+                    ModifyUsers(title: $title, data: data, refreshParent: refreshView)
                 }
                 
                 Button(action: swap) {
@@ -46,6 +47,10 @@ struct UsersView: View {
     
     func swap() -> Void {
         isRanking = !isRanking
+    }
+    
+    func refreshView() -> Void {
+        data = UserService().getUsers()
     }
 }
 

@@ -13,6 +13,7 @@ struct AddUserView: View {
     
     @State var firstName:String = ""
     @State var lastName:String = ""
+    @State var refreshView: (User) -> Void
     
     var body: some View {
         VStack(spacing: 0) {
@@ -73,7 +74,9 @@ struct AddUserView: View {
     
     func createUser() -> Void {
         if (self.firstName != "" && self.lastName != "") {
-            UserService().addUser(user: User(idUser: UUID(), firstName: self.firstName, lastName: self.lastName, elo: 1500))
+            let newUser: User = User(idUser: UUID(), firstName: self.firstName, lastName: self.lastName, elo: 1500)
+            UserService().addUser(user: newUser)
+            refreshView(newUser)
             self.presentationMode.wrappedValue.dismiss()
         }
     }
