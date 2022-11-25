@@ -41,7 +41,6 @@ class SqlRepository {
         }
         
         do {
-            dropTables()
             
             //User
             try database.run(usersTable.create(ifNotExists: true) { usersTable in

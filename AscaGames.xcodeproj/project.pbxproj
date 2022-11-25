@@ -30,6 +30,8 @@
 		F558136D292B843600BD8E41 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F558136C292B843600BD8E41 /* User.swift */; };
 		F5581E6F292BBC6D00D40034 /* MainTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5581E6E292BBC6D00D40034 /* MainTheme.swift */; };
 		F560FC74292BDE67005E4336 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560FC73292BDE67005E4336 /* UserService.swift */; };
+		F561F3FB2930A70E009991C5 /* MatchSetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F3FA2930A70E009991C5 /* MatchSetService.swift */; };
+		F561F3FD2930A88A009991C5 /* MatchSetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F3FC2930A88A009991C5 /* MatchSetRepository.swift */; };
 		F5D3966C292E60590067F2CA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = F5D3966B292E60590067F2CA /* SQLite */; };
 		F5D3966E292E61850067F2CA /* SqliteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D3966D292E61850067F2CA /* SqliteService.swift */; };
 		F5D39671292E64120067F2CA /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D39670292E64120067F2CA /* UserRepository.swift */; };
@@ -60,6 +62,8 @@
 		F558136C292B843600BD8E41 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F5581E6E292BBC6D00D40034 /* MainTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTheme.swift; sourceTree = "<group>"; };
 		F560FC73292BDE67005E4336 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		F561F3FA2930A70E009991C5 /* MatchSetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSetService.swift; sourceTree = "<group>"; };
+		F561F3FC2930A88A009991C5 /* MatchSetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSetRepository.swift; sourceTree = "<group>"; };
 		F5D3966D292E61850067F2CA /* SqliteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteService.swift; sourceTree = "<group>"; };
 		F5D39670292E64120067F2CA /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +165,7 @@
 				F5D3966D292E61850067F2CA /* SqliteService.swift */,
 				F552E871292F619200B9E552 /* MatchTypeService.swift */,
 				F552E877292F65FF00B9E552 /* MatchService.swift */,
+				F561F3FA2930A70E009991C5 /* MatchSetService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 				F552E86F292F5F4B00B9E552 /* MatchTypeRepository.swift */,
 				F552E875292F64D400B9E552 /* MatchRepository.swift */,
 				F552E879292F6F9100B9E552 /* SqlRepository.swift */,
+				F561F3FC2930A88A009991C5 /* MatchSetRepository.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -290,6 +296,7 @@
 			files = (
 				F552E878292F65FF00B9E552 /* MatchService.swift in Sources */,
 				F558135D292B649800BD8E41 /* UsersView.swift in Sources */,
+				F561F3FB2930A70E009991C5 /* MatchSetService.swift in Sources */,
 				F5D3966E292E61850067F2CA /* SqliteService.swift in Sources */,
 				F5581360292B6EA600BD8E41 /* Extensions.swift in Sources */,
 				F558136A292B835800BD8E41 /* EditUserLine.swift in Sources */,
@@ -302,6 +309,7 @@
 				F5581359292B643F00BD8E41 /* DashBoardView.swift in Sources */,
 				F560FC74292BDE67005E4336 /* UserService.swift in Sources */,
 				F552E870292F5F4B00B9E552 /* MatchTypeRepository.swift in Sources */,
+				F561F3FD2930A88A009991C5 /* MatchSetRepository.swift in Sources */,
 				F552E87A292F6F9100B9E552 /* SqlRepository.swift in Sources */,
 				F552E872292F619200B9E552 /* MatchTypeService.swift in Sources */,
 				F558134C292B5FB600BD8E41 /* ContentView.swift in Sources */,
