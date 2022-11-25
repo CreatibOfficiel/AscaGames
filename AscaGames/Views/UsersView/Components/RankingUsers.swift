@@ -18,7 +18,7 @@ struct RankingUsers: View {
         ScrollView {
             VStack {
                 HStack {
-                    Button(action: swapMatchMode) {
+                    Button(action: swapSingleMatch) {
                         Text("1 vs 1")
                             .padding()
                             .foregroundColor(singleMatch ? theme.customYellow : .white)
@@ -32,7 +32,7 @@ struct RankingUsers: View {
         
                     Spacer()
                     
-                    Button(action: swapMatchMode) {
+                    Button(action: swapDoubleMatch) {
                         Text("2 vs 2")
                             .padding()
                             .foregroundColor(singleMatch ? .white : theme.customYellow)
@@ -74,8 +74,12 @@ struct RankingUsers: View {
         }
     }
     
-    func swapMatchMode() -> Void {
-        singleMatch = !singleMatch
+    func swapSingleMatch() -> Void {
+        singleMatch = true
+    }
+    
+    func swapDoubleMatch() -> Void {
+        singleMatch = false
     }
     
     func addUser() -> Void {
