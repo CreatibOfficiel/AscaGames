@@ -1,18 +1,16 @@
 //
-//  RankingUsers.swift
+//  RankingMatches.swift
 //  AscaGames
 //
-//  Created by Dylan Jacquet on 24/11/2022.
+//  Created by Thibaud on 25/11/2022.
 //
 
 import SwiftUI
 
-struct RankingUsers: View {
+struct RankingMatches: View {
     
-    @State var data : Array<User>
+    @State var data : Array<Match>
     @State var singleMatch : Bool = true
-    
-    var switchIsRanking: () -> Void
     
     var body: some View {
         ScrollView {
@@ -49,15 +47,14 @@ struct RankingUsers: View {
                 ScrollView {
                     Spacer()
                     ForEach(data, id: \.self) { u in
-                        let myUser = User(idUser: u.idUser, firstName: u.firstName, lastName: u.lastName, elo: u.elo)
-                        EditUserLine(user: myUser, updateUser: updateUser, deleteUser: updateUser).padding(10)
+                        
                     }
                     Spacer()
                 }
                 
                 VStack {
-                    Button(action: switchIsRanking) {
-                        Text("U S E R S   L I S T")
+                    NavigationLink(destination: AddMatchView()) {
+                        Text("+   N E W   M A T C H")
                             .padding()
                             .frame(width: 250)
                             .background(theme.customYellow)
@@ -77,14 +74,5 @@ struct RankingUsers: View {
     func swapMatchMode() -> Void {
         singleMatch = !singleMatch
     }
-    
-    func addUser() -> Void {
-        let newUser = User(idUser: UUID(), firstName: "Jean", lastName: "Dupont4", elo: 1500)
-        UserService().addUser(user: newUser)
-        data.append(newUser)
-    }
-    
-    func updateUser(user: User) -> Void {
-        
-    }
 }
+

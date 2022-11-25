@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BB1CA9D9292F725D00FC3CF2 /* ModifyUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1CA9D8292F725D00FC3CF2 /* ModifyUserView.swift */; };
 		BB28D292292FFE8400203096 /* AddUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB28D291292FFE8400203096 /* AddUserView.swift */; };
+		BB7CD4542931051B0089A7A0 /* RankingMatches.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7CD4532931051B0089A7A0 /* RankingMatches.swift */; };
+		BB7CD45729310EF10089A7A0 /* AddMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7CD45629310EF10089A7A0 /* AddMatchView.swift */; };
 		F552E868292F527A00B9E552 /* RankingUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E867292F527A00B9E552 /* RankingUsers.swift */; };
 		F552E86A292F52F000B9E552 /* RankingUserLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E869292F52F000B9E552 /* RankingUserLine.swift */; };
 		F552E86E292F5EBD00B9E552 /* MatchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E86D292F5EBD00B9E552 /* MatchType.swift */; };
@@ -32,7 +34,6 @@
 		F558136D292B843600BD8E41 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F558136C292B843600BD8E41 /* User.swift */; };
 		F5581E6F292BBC6D00D40034 /* MainTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5581E6E292BBC6D00D40034 /* MainTheme.swift */; };
 		F560FC74292BDE67005E4336 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F560FC73292BDE67005E4336 /* UserService.swift */; };
-		F561F3FB2930A70E009991C5 /* MatchSetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F3FA2930A70E009991C5 /* MatchSetService.swift */; };
 		F561F3FD2930A88A009991C5 /* MatchSetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F3FC2930A88A009991C5 /* MatchSetRepository.swift */; };
 		F561F3FF2930AEB9009991C5 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F3FE2930AEB9009991C5 /* Play.swift */; };
 		F561F4012930B07D009991C5 /* PlayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F4002930B07D009991C5 /* PlayService.swift */; };
@@ -45,6 +46,8 @@
 /* Begin PBXFileReference section */
 		BB1CA9D8292F725D00FC3CF2 /* ModifyUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyUserView.swift; sourceTree = "<group>"; };
 		BB28D291292FFE8400203096 /* AddUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserView.swift; sourceTree = "<group>"; };
+		BB7CD4532931051B0089A7A0 /* RankingMatches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingMatches.swift; sourceTree = "<group>"; };
+		BB7CD45629310EF10089A7A0 /* AddMatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMatchView.swift; sourceTree = "<group>"; };
 		F552E867292F527A00B9E552 /* RankingUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingUsers.swift; sourceTree = "<group>"; };
 		F552E869292F52F000B9E552 /* RankingUserLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingUserLine.swift; sourceTree = "<group>"; };
 		F552E86D292F5EBD00B9E552 /* MatchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchType.swift; sourceTree = "<group>"; };
@@ -90,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB7CD455293107730089A7A0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BB7CD4532931051B0089A7A0 /* RankingMatches.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		F558133D292B5FB600BD8E41 = {
 			isa = PBXGroup;
 			children = (
@@ -228,7 +239,9 @@
 		F5D39675292E77920067F2CA /* MatchesView */ = {
 			isa = PBXGroup;
 			children = (
+				BB7CD455293107730089A7A0 /* Components */,
 				F558135A292B646A00BD8E41 /* MatchesView.swift */,
+				BB7CD45629310EF10089A7A0 /* AddMatchView.swift */,
 			);
 			path = MatchesView;
 			sourceTree = "<group>";
@@ -311,12 +324,14 @@
 			files = (
 				F552E878292F65FF00B9E552 /* MatchService.swift in Sources */,
 				F558135D292B649800BD8E41 /* UsersView.swift in Sources */,
+				BB7CD45729310EF10089A7A0 /* AddMatchView.swift in Sources */,
 				BB1CA9D9292F725D00FC3CF2 /* ModifyUserView.swift in Sources */,
 				BB28D292292FFE8400203096 /* AddUserView.swift in Sources */,
 				F5D3966E292E61850067F2CA /* SqliteService.swift in Sources */,
 				F5581360292B6EA600BD8E41 /* Extensions.swift in Sources */,
 				F558136A292B835800BD8E41 /* EditUserLine.swift in Sources */,
 				F552E86A292F52F000B9E552 /* RankingUserLine.swift in Sources */,
+				BB7CD4542931051B0089A7A0 /* RankingMatches.swift in Sources */,
 				F552E876292F64D400B9E552 /* MatchRepository.swift in Sources */,
 				F561F4012930B07D009991C5 /* PlayService.swift in Sources */,
 				F561F4032930B08B009991C5 /* PlayRepository.swift in Sources */,

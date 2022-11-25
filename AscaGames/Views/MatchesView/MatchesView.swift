@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct MatchesView: View {
-    var body: some View {
-        Text("Hello, Matches!")
+    
+    @State var data : Array<Match>
+    
+    init() {
+        data = MatchService().getMatchs()
     }
-}
-
-struct MatchesView_Previews: PreviewProvider {
-    static var previews: some View {
-        MatchesView()
+    
+    var body: some View {
+        NavigationView {
+            VStack(spacing: 0) {
+                Text("PING PONG")
+                    .font(.system(size: 34, weight: .heavy))
+                    .foregroundColor(theme.customYellow)
+                Divider().frame(width: 230, height: 2).overlay(.white)
+                Text("ALL MATCHES").foregroundColor(.white)
+                Spacer().frame(height: 60)
+                
+                RankingMatches(data: data)
+            }
+            .frame(width: 1000)
+            .background(Color.black)
+        }
     }
 }
