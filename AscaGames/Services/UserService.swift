@@ -9,7 +9,7 @@ import Foundation
 
 class UserService {
     
-    private var userList = [User(idUser: Int64(), firstName: "Jean", lastName: "Dupont3", elo: 1500)]
+    private var userList = [User(idUser: UUID(), firstName: "Jean", lastName: "Dupont3", elo: 1500)]
     
     func getUsers() -> [User] {
         let users = UserRepository.getUsers()
@@ -31,7 +31,7 @@ class UserService {
         print(isSuccess ?? "")
     }
     
-    func deleteUser(id: Int64) -> Void {
+    func deleteUser(id: UUID) -> Void {
         UserRepository.deleteUser(userId: id)
     }
 }

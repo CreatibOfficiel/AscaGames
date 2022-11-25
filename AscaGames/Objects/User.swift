@@ -8,7 +8,7 @@
 import Foundation
 
 struct User : Hashable {
-    var idUser: Int64
+    var idUser: UUID
     var firstName: String
     var lastName: String
     var elo: Int

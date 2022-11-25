@@ -8,8 +8,8 @@
 import Foundation
 
 struct MatchSet : Hashable {
-    var idMatchSet: Int64
-    var idMatch: Int64
+    var idMatchSet: UUID
+    var idMatch: UUID
     var numSet: Int
     var scoreTL: Int
     var scoreTR: Int

@@ -8,7 +8,7 @@
 import Foundation
 
 struct Match : Hashable {
-    var idMatch: Int64
+    var idMatch: UUID
     var nbSets: Int
-    var idMatchType: Int64
+    var idMatchType: UUID
 }

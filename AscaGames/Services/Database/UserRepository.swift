@@ -12,7 +12,7 @@ class UserRepository {
     
     static var table = Table("users")
     
-    static let idUser = Expression<Int64>("idUser")
+    static let idUser = Expression<UUID>("idUser")
     static let firstName = Expression<String>("firstName")
     static let lastName = Expression<String>("lastName")
     
@@ -24,7 +24,7 @@ class UserRepository {
         }
         
         do {
-            try database.run(table.insert(firstName <- userValues.firstName, lastName <- userValues.lastName))
+            try database.run(table.insert(idUser <- userValues.idUser, firstName <- userValues.firstName, lastName <- userValues.lastName))
             return true
         } catch let error {
             print("Insertion failed: \(error)")
@@ -92,7 +92,7 @@ class UserRepository {
     }
     
     // Delete Row
-    static func deleteUser(userId: Int64) {
+    static func deleteUser(userId: UUID) {
         guard let database = SqliteService.sharedInstance.database else {
             print("Datastore connection error")
             return

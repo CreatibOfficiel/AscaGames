@@ -15,10 +15,10 @@ class SqlRepository {
     static var matchsTable = Table("matchs")
     static var matchSetsTable = Table("matchSets")
     
-    static let idUser = Expression<Int64>("idUser")
-    static let idMatchType = Expression<Int64>("idMatchType")
-    static let idMatch = Expression<Int64>("idMatch")
-    static let idMatchSet = Expression<Int64>("idMatchSet")
+    static let idUser = Expression<UUID>("idUser")
+    static let idMatchType = Expression<UUID>("idMatchType")
+    static let idMatch = Expression<UUID>("idMatch")
+    static let idMatchSet = Expression<UUID>("idMatchSet")
     
     //User
     static let firstName = Expression<String>("firstName")

@@ -44,7 +44,7 @@ struct ModifyUsers: View {
     }
     
     func addUser() -> Void {
-        let newUser = User(idUser: Int64(), firstName: "Jean", lastName: "Dupont4", elo: 1500)
+        let newUser = User(idUser: UUID(), firstName: "Jean", lastName: "Dupont4", elo: 1500)
         UserService().addUser(user: newUser)
         data.append(newUser)
     }

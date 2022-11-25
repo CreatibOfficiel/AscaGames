@@ -8,6 +8,6 @@
 import Foundation
 
 struct MatchType : Hashable {
-    var idMatchType : Int64
+    var idMatchType : UUID
     var lib : String
 }

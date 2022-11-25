@@ -12,7 +12,7 @@ class MatchTypeRepository {
     
     static var table = Table("matchType")
     
-    static let idMatchType = Expression<Int64>("idMatchType")
+    static let idMatchType = Expression<UUID>("idMatchType")
     static let lib = Expression<String>("lib")
     
     
@@ -23,7 +23,7 @@ class MatchTypeRepository {
         }
         
         do {
-            try database.run(table.insert(lib <- matchTypeValues.lib))
+            try database.run(table.insert(idMatchType <- matchTypeValues.idMatchType, lib <- matchTypeValues.lib))
             return true
         } catch let error {
             print("Insertion failed: \(error)")
@@ -90,7 +90,7 @@ class MatchTypeRepository {
     }
     
     // Delete Row
-    static func deleteMatchType(matchTypeId: Int64) {
+    static func deleteMatchType(matchTypeId: UUID) {
         guard let database = SqliteService.sharedInstance.database else {
             print("Datastore connection error")
             return
