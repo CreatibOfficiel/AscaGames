@@ -29,7 +29,7 @@ class MatchService {
         print(isSuccess ?? "")
     }
     
-    func deleteMatch(id: UUID) -> Void {
+    func deleteMatch(id: Int64) -> Void {
         MatchRepository.deleteMatch(matchId: id)
     }
 }

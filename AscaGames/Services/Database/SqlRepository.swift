@@ -15,10 +15,10 @@ class SqlRepository {
     static var matchsTable = Table("matchs")
     static var matchSetsTable = Table("matchSets")
     
-    static let idUser = Expression<UUID>("idUser")
-    static let idMatchType = Expression<UUID>("idMatchType")
-    static let idMatch = Expression<UUID>("idMatch")
-    static let idMatchSet = Expression<UUID>("idMatchSet")
+    static let idUser = Expression<Int64>("idUser")
+    static let idMatchType = Expression<Int64>("idMatchType")
+    static let idMatch = Expression<Int64>("idMatch")
+    static let idMatchSet = Expression<Int64>("idMatchSet")
     
     //User
     static let firstName = Expression<String>("firstName")
@@ -41,8 +41,8 @@ class SqlRepository {
         }
         
         do {
-            
             dropTables()
+            
             //User
             try database.run(usersTable.create(ifNotExists: true) { usersTable in
                 usersTable.column(idUser, primaryKey: true)
@@ -60,13 +60,14 @@ class SqlRepository {
             try database.run(matchsTable.create(ifNotExists: true) { matchsTable in
                 matchsTable.column(idMatch, primaryKey: true)
                 matchsTable.column(nbSets)
-                matchsTable.foreignKey(idMatchType, references: matchTypesTable, idMatchType, delete: .setNull)
-
+                matchsTable.column(idMatchType)
+                matchsTable.foreignKey(idMatchType, references: matchTypesTable, idMatchType)
             })
             
             //MatchSet
             try database.run(matchSetsTable.create(ifNotExists: true) { matchSetsTable in
                 matchSetsTable.column(idMatchSet, primaryKey: true)
+                matchSetsTable.column(idMatch)
                 matchSetsTable.foreignKey(idMatch, references: matchsTable, idMatch, delete: .setNull)
             })
             

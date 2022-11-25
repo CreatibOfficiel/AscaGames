@@ -12,9 +12,9 @@ class MatchRepository {
     
     static var table = Table("matchs")
     
-    static let idMatch = Expression<UUID>("idMatch")
+    static let idMatch = Expression<Int64>("idMatch")
     static let nbSets = Expression<Int>("nbSets")
-    static let idMatchType = Expression<UUID>("idMatchType")
+    static let idMatchType = Expression<Int64>("idMatchType")
     
     
     
@@ -25,7 +25,7 @@ class MatchRepository {
         }
         
         do {
-            try database.run(table.insert(idMatch <- matchValues.idMatch ,nbSets <- matchValues.nbSets, idMatchType <- matchValues.idMatchType))
+            try database.run(table.insert(nbSets <- matchValues.nbSets, idMatchType <- matchValues.idMatchType))
             return true
         } catch let error {
             print("Insertion failed: \(error)")
@@ -93,7 +93,7 @@ class MatchRepository {
     }
     
     // Delete Row
-    static func deleteMatch(matchId: UUID) {
+    static func deleteMatch(matchId: Int64) {
         guard let database = SqliteService.sharedInstance.database else {
             print("Datastore connection error")
             return
