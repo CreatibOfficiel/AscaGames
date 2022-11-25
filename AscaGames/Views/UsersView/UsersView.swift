@@ -26,7 +26,7 @@ struct UsersView: View {
                     .font(.system(size: 34, weight: .heavy))
                     .foregroundColor(theme.customYellow)
                 Divider().frame(width: 230, height: 2).overlay(.white)
-                Text(isRanking ? "USERS RANKING" : "SELECT USER").foregroundColor(.white)
+                Text(isRanking ? "USERS RANKING" : "EDIT USER").foregroundColor(.white)
                 Spacer().frame(height: 60)
                 
                 if (isRanking) {
