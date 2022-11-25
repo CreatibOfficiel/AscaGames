@@ -18,7 +18,6 @@ struct UsersView: View {
         data = UserService().getUsers()
     }
     
-    
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -26,17 +25,13 @@ struct UsersView: View {
                     .font(.system(size: 34, weight: .heavy))
                     .foregroundColor(theme.customYellow)
                 Divider().frame(width: 230, height: 2).overlay(.white)
-                Text(isRanking ? "ALL USERS" : "SELECT USER").foregroundColor(.white)
+                Text(isRanking ? "USERS RANKING" : "SELECT USER").foregroundColor(.white)
                 Spacer().frame(height: 60)
                 
-                if(isRanking){
-                    RankingUsers(title: $titleRanking, data: data)
+                if (isRanking) {
+                    RankingUsers(data: data, switchIsRanking: swap)
                 } else {
-                    ModifyUsers(title: $title, data: data)
-                }
-                
-                Button(action: swap) {
-                    Text("SWAP VIEW")
+                    ModifyUsers(data: data, switchIsRanking: swap)
                 }
             }
             .frame(width: 1000)

@@ -10,29 +10,59 @@ import CoreData
 
 struct ModifyUsers: View {
     
-    @Binding var title : String
     @State var data : Array<User>
+    @State private var searchText = ""
+    
+    var switchIsRanking: () -> Void
 
     var body: some View {
         ScrollView {
             VStack {
                 VStack {
-                    Text(title)
+                    HStack {
+                        Spacer(minLength: 5)
+                        HStack (alignment: .center, spacing: 10) {
+                            Image(systemName: "magnifyingglass")
+                                .foregroundColor(.white)
+                            TextField ("", text: $searchText).foregroundColor(.white)
+                                .placeholder(when: self.searchText.isEmpty) {
+                                    Text("Search").foregroundColor(.white)
+                                }
+                        }.padding([.top,.bottom,.leading], 10)
+                            .cornerRadius(5)
+                            .overlay(RoundedRectangle(cornerRadius: 10.0).strokeBorder(.white, style: StrokeStyle(lineWidth: 1.0)))
+                        Spacer(minLength: 5)
+                    }
                 }.frame(width: 300, height: 60)
-                .background()
+                    .background(theme.customYellow)
                 
                 ScrollView {
-                    Spacer()
-                    ForEach(data, id: \.self) { u in
-                        let myUser = User(idUser: u.idUser, firstName: u.firstName, lastName: u.lastName, elo: 1500)
-                        EditUserLine(user: myUser).padding(10)
+                    NavigationLink(destination: AddUserView()) {
+                        HStack () {
+                            Image(systemName: "person.badge.plus.fill")
+                                .foregroundColor(.white)
+                                .padding(5)
+                            Text("Add a new user").foregroundColor(.white)
+                        }.frame(alignment: .leading)
                     }
+                    
+                    Spacer()
+                    
+                    ForEach(searchResults, id: \.self) { u in
+                        EditUserLine(
+                            user: User(idUser: u.idUser,
+                                       firstName: u.firstName,
+                                       lastName: u.lastName,
+                                       elo: u.elo))
+                        .padding(10)
+                    }
+                    
                     Spacer()
                 }
                 
                 VStack {
-                    NavigationLink(destination: AddUserView()) {
-                        Text("+   N E W   U S E R")
+                    Button(action: switchIsRanking) {
+                        Text("R A N K E D   L I S T")
                             .padding()
                             .frame(width: 250)
                             .background(theme.customYellow)
@@ -49,9 +79,11 @@ struct ModifyUsers: View {
         }
     }
     
-    func addUser() -> Void {
-        let newUser = User(idUser: UUID(), firstName: "Jean", lastName: "Dupont4", elo: 1500)
-        UserService().addUser(user: newUser)
-        data.append(newUser)
+    var searchResults: [User] {
+        if searchText.isEmpty {
+            return data
+        } else {
+            return data.filter { $0.firstName.contains(searchText) }
+        }
     }
 }
