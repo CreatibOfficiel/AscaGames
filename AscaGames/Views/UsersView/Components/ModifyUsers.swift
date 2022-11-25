@@ -97,17 +97,21 @@ struct ModifyUsers: View {
     
     func deleteUserAndRefreshView(user: User) -> Void {
         data.removeAll(where: { user.idUser == $0.idUser })
+        searchData.removeAll(where: { user.idUser == $0.idUser })
+
         refreshParent()
     }
     
     func updateUserAndRefreshView(user: User) -> Void {
         let index = data.firstIndex(where: { user.idUser == $0.idUser })
         data[index!] = user
+        searchData[index!] = user
         refreshParent()
     }
     
     func addUserAndRefreshView(user: User) -> Void {
         data.append(user)
+        searchData.append(user)
         refreshParent()
     }
 }
