@@ -1,10 +1,3 @@
-//
-//  RankingMatches.swift
-//  AscaGames
-//
-//  Created by Thibaud on 25/11/2022.
-//
-
 import SwiftUI
 
 struct RankingMatches: View {
@@ -75,4 +68,3 @@ struct RankingMatches: View {
         singleMatch = !singleMatch
     }
 }
-

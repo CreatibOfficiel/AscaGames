@@ -10,6 +10,8 @@
 		BB1CA9D9292F725D00FC3CF2 /* ModifyUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1CA9D8292F725D00FC3CF2 /* ModifyUserView.swift */; };
 		BB28D292292FFE8400203096 /* AddUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB28D291292FFE8400203096 /* AddUserView.swift */; };
 		F50BE1FD293101E200147EAA /* UserStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50BE1FC293101E200147EAA /* UserStats.swift */; };
+		F50BE2012931123E00147EAA /* RankingMatches.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50BE2002931123E00147EAA /* RankingMatches.swift */; };
+		F50BE2032931126800147EAA /* AddMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50BE2022931126800147EAA /* AddMatchView.swift */; };
 		F552E868292F527A00B9E552 /* RankingUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E867292F527A00B9E552 /* RankingUsers.swift */; };
 		F552E86A292F52F000B9E552 /* RankingUserLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E869292F52F000B9E552 /* RankingUserLine.swift */; };
 		F552E86E292F5EBD00B9E552 /* MatchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E86D292F5EBD00B9E552 /* MatchType.swift */; };
@@ -46,6 +48,8 @@
 		BB1CA9D8292F725D00FC3CF2 /* ModifyUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyUserView.swift; sourceTree = "<group>"; };
 		BB28D291292FFE8400203096 /* AddUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserView.swift; sourceTree = "<group>"; };
 		F50BE1FC293101E200147EAA /* UserStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStats.swift; sourceTree = "<group>"; };
+		F50BE2002931123E00147EAA /* RankingMatches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingMatches.swift; sourceTree = "<group>"; };
+		F50BE2022931126800147EAA /* AddMatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMatchView.swift; sourceTree = "<group>"; };
 		F552E867292F527A00B9E552 /* RankingUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingUsers.swift; sourceTree = "<group>"; };
 		F552E869292F52F000B9E552 /* RankingUserLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingUserLine.swift; sourceTree = "<group>"; };
 		F552E86D292F5EBD00B9E552 /* MatchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchType.swift; sourceTree = "<group>"; };
@@ -94,7 +98,7 @@
 		BB7CD455293107730089A7A0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				BB7CD4532931051B0089A7A0 /* RankingMatches.swift */,
+				F50BE2002931123E00147EAA /* RankingMatches.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -240,7 +244,7 @@
 			children = (
 				BB7CD455293107730089A7A0 /* Components */,
 				F558135A292B646A00BD8E41 /* MatchesView.swift */,
-				BB7CD45629310EF10089A7A0 /* AddMatchView.swift */,
+				F50BE2022931126800147EAA /* AddMatchView.swift */,
 			);
 			path = MatchesView;
 			sourceTree = "<group>";
@@ -323,14 +327,13 @@
 			files = (
 				F552E878292F65FF00B9E552 /* MatchService.swift in Sources */,
 				F558135D292B649800BD8E41 /* UsersView.swift in Sources */,
-				BB7CD45729310EF10089A7A0 /* AddMatchView.swift in Sources */,
 				BB1CA9D9292F725D00FC3CF2 /* ModifyUserView.swift in Sources */,
 				BB28D292292FFE8400203096 /* AddUserView.swift in Sources */,
 				F5D3966E292E61850067F2CA /* SqliteService.swift in Sources */,
 				F5581360292B6EA600BD8E41 /* Extensions.swift in Sources */,
+				F50BE2012931123E00147EAA /* RankingMatches.swift in Sources */,
 				F558136A292B835800BD8E41 /* EditUserLine.swift in Sources */,
 				F552E86A292F52F000B9E552 /* RankingUserLine.swift in Sources */,
-				BB7CD4542931051B0089A7A0 /* RankingMatches.swift in Sources */,
 				F552E876292F64D400B9E552 /* MatchRepository.swift in Sources */,
 				F561F4012930B07D009991C5 /* PlayService.swift in Sources */,
 				F561F4032930B08B009991C5 /* PlayRepository.swift in Sources */,
@@ -352,6 +355,7 @@
 				F552E868292F527A00B9E552 /* RankingUsers.swift in Sources */,
 				F558136D292B843600BD8E41 /* User.swift in Sources */,
 				F5581364292B751800BD8E41 /* ModifyUsers.swift in Sources */,
+				F50BE2032931126800147EAA /* AddMatchView.swift in Sources */,
 				F552E87C292F76A200B9E552 /* MatchSet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
