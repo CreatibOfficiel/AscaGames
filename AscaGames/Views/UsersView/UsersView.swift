@@ -11,12 +11,14 @@ struct UsersView: View {
     var tableView = UITableView()
     
     @State var data: Array<User>
+    @State var dataStats: Array<UserStats>
     @State var title = "Users"
     @State var titleRanking = "Ranking"
     @State var isRanking = true
     
     init() {
         data = UserService().getUsers()
+        dataStats = UserService().getUserStats()
     }
     
     var body: some View {
@@ -30,7 +32,7 @@ struct UsersView: View {
                 Spacer().frame(height: 60)
                 
                 if (isRanking) {
-                    RankingUsers(data: data, switchIsRanking: swap)
+                    RankingUsers(data: dataStats, switchIsRanking: swap)
                 } else {
                     ModifyUsers(data: data, searchData: data, switchIsRanking: swap, refreshParent: refreshView)
                 }

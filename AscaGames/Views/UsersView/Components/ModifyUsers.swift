@@ -37,8 +37,8 @@ struct ModifyUsers: View {
                             .cornerRadius(5)
                             .overlay(RoundedRectangle(cornerRadius: 10.0).strokeBorder(.white, style: StrokeStyle(lineWidth: 1.0)))
                         Spacer(minLength: 5)
-                    }
-                }.frame(width: 300, height: 60)
+                    }.padding(10)
+                }.frame(width: 350, height: 60)
                     .background(theme.customYellow)
                 
                 ScrollView {
@@ -74,7 +74,7 @@ struct ModifyUsers: View {
                 }
                 .frame(maxWidth: .infinity)
                 .background(theme.customYellow)
-            }.frame(width: 300, height: 500)
+            }.frame(width: 350, height: 550)
                 .border(theme.customYellow, width: 5)
         }
     }

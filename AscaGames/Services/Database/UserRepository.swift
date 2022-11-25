@@ -15,6 +15,7 @@ class UserRepository {
     static let idUser = Expression<UUID>("idUser")
     static let firstName = Expression<String>("firstName")
     static let lastName = Expression<String>("lastName")
+    static let elo = Expression<Int>("elo")
     
     
     static func addUser(_ userValues:User) -> Bool? {
@@ -24,7 +25,7 @@ class UserRepository {
         }
         
         do {
-            try database.run(table.insert(idUser <- userValues.idUser, firstName <- userValues.firstName, lastName <- userValues.lastName))
+            try database.run(table.insert(idUser <- userValues.idUser, firstName <- userValues.firstName, lastName <- userValues.lastName, elo <- userValues.elo))
             return true
         } catch let error {
             print("Insertion failed: \(error)")
@@ -44,7 +45,7 @@ class UserRepository {
         
         do {
             // Update the contact's values
-            if try database.run(user.update(firstName <- userValues.firstName, lastName <- userValues.lastName)) > 0 {
+            if try database.run(user.update(firstName <- userValues.firstName, lastName <- userValues.lastName, elo <- userValues.elo)) > 0 {
                 print("Updated user")
                 return true
             } else {
@@ -76,14 +77,15 @@ class UserRepository {
                 let idUserValue = user[idUser]
                 let firstNameValue = user[firstName]
                 let lastNameValue = user[lastName]
+                let eloValue = user[elo]
                 
                 // Create object
-                let userObject = User(idUser: idUserValue, firstName: firstNameValue, lastName: lastNameValue, elo: 1500)
+                let userObject = User(idUser: idUserValue, firstName: firstNameValue, lastName: lastNameValue, elo: eloValue)
                 
                 // Add object to an array
                 userArray.append(userObject)
                 
-                print("id \(user[idUser]), firstName: \(user[firstName]), lastName: \(user[lastName])")
+                print("id \(user[idUser]), firstName: \(user[firstName]), lastName: \(user[lastName]), elo: \(user[elo])")
             }
         } catch {
             print("Present row error: \(error)")

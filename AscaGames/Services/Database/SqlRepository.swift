@@ -24,6 +24,7 @@ class SqlRepository {
     //User
     static let firstName = Expression<String>("firstName")
     static let lastName = Expression<String>("lastName")
+    static let elo = Expression<Int>("elo")
     //MatchType
     static let lib = Expression<String>("lib")
     //Match
@@ -50,6 +51,7 @@ class SqlRepository {
                 usersTable.column(idUser, primaryKey: true)
                 usersTable.column(firstName)
                 usersTable.column(lastName)
+                usersTable.column(elo)
             })
             
             //MatchType

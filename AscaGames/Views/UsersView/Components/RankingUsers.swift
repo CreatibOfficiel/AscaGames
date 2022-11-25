@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RankingUsers: View {
     
-    @State var data : Array<User>
+    @State var data : Array<UserStats>
     @State var singleMatch : Bool = true
     
     var switchIsRanking: () -> Void
@@ -43,14 +43,14 @@ struct RankingUsers: View {
                                 RoundedRectangle(cornerRadius: 30).stroke(.white, lineWidth: singleMatch ? 2 : 0)
                             )
                     }.padding([.top,.bottom,.trailing], 10)
-                }.frame(width: 300, height: 80)
+                }.frame(width: 350, height: 80)
                 .background(theme.customYellow)
                 
                 ScrollView {
                     Spacer()
                     ForEach(data, id: \.self) { u in
-                        let myUser = User(idUser: u.idUser, firstName: u.firstName, lastName: u.lastName, elo: u.elo)
-                        EditUserLine(user: myUser, updateUser: updateUser, deleteUser: updateUser).padding(10)
+                        let userStat = UserStats(user: u.user, wins: u.wins, matches: u.matches)
+                        RankingUserLine(userStat: userStat, ranking: data.firstIndex(of: userStat)! + 1)
                     }
                     Spacer()
                 }
@@ -69,19 +69,13 @@ struct RankingUsers: View {
                 }
                 .frame(maxWidth: .infinity)
                 .background(theme.customYellow)
-            }.frame(width: 300, height: 500)
+            }.frame(width: 350, height: 550)
             .border(theme.customYellow, width: 5)
         }
     }
     
     func swapMatchMode() -> Void {
         singleMatch = !singleMatch
-    }
-    
-    func addUser() -> Void {
-        let newUser = User(idUser: UUID(), firstName: "Jean", lastName: "Dupont4", elo: 1500)
-        UserService().addUser(user: newUser)
-        data.append(newUser)
     }
     
     func updateUser(user: User) -> Void {
