@@ -23,7 +23,7 @@ struct EditUserLine: View {
                     Image(systemName: "pencil.circle.fill").foregroundColor(theme.customYellow)
                 }
             }.padding(5)
-            Divider().background(.white)
+            Divider().frame(width: 320, height: 2).overlay(.white)
         }
     }
 }
