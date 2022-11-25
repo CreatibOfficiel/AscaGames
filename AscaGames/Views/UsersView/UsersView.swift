@@ -32,7 +32,7 @@ struct UsersView: View {
                 if (isRanking) {
                     RankingUsers(data: data, switchIsRanking: swap)
                 } else {
-                    ModifyUsers(data: data, switchIsRanking: swap, refreshParent: refreshView)
+                    ModifyUsers(data: data, searchData: data, switchIsRanking: swap, refreshParent: refreshView)
                 }
             }
             .frame(width: 1000)
