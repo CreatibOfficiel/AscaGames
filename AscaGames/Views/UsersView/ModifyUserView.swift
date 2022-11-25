@@ -83,7 +83,7 @@ struct ModifyUserView: View {
     }
     
     func delete() -> Void {
-        UserService().deleteUser(id: user.id)
+        UserService().deleteUser(id: user.idUser)
         self.presentationMode.wrappedValue.dismiss()
     }
 }

@@ -73,7 +73,7 @@ struct AddUserView: View {
     
     func createUser() -> Void {
         if (self.firstName != "" && self.lastName != "") {
-            UserService().addUser(user: User(id: UUID(), firstName: self.firstName, lastName: self.lastName))
+            UserService().addUser(user: User(idUser: UUID(), firstName: self.firstName, lastName: self.lastName, elo: 1500))
             self.presentationMode.wrappedValue.dismiss()
         }
     }
