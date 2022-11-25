@@ -50,7 +50,7 @@ struct RankingUsers: View {
                     Spacer()
                     ForEach(data, id: \.self) { u in
                         let myUser = User(idUser: u.idUser, firstName: u.firstName, lastName: u.lastName, elo: u.elo)
-                        EditUserLine(user: myUser).padding(10)
+                        EditUserLine(user: myUser, updateUser: updateUser, deleteUser: updateUser).padding(10)
                     }
                     Spacer()
                 }
@@ -76,5 +76,13 @@ struct RankingUsers: View {
     
     func swapMatchMode() -> Void {
         singleMatch = !singleMatch
+    func addUser() -> Void {
+        let newUser = User(idUser: UUID(), firstName: "Jean", lastName: "Dupont4", elo: 1500)
+        UserService().addUser(user: newUser)
+        data.append(newUser)
+    }
+    
+    func updateUser(user: User) -> Void {
+        
     }
 }

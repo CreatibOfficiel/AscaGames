@@ -9,6 +9,8 @@ import SwiftUI
 
 struct EditUserLine: View {
     @State var user: User
+    @State var updateUser: (User) -> Void
+    @State var deleteUser: (User) -> Void
     
     var body: some View {
         VStack {
@@ -17,7 +19,7 @@ struct EditUserLine: View {
                 Text(user.firstName).foregroundColor(theme.customYellow)
                 Text(user.lastName.prefix(1) + ".").foregroundColor(theme.customYellow)
                 Spacer()
-                NavigationLink(destination: ModifyUserView(user: user)) {
+                NavigationLink(destination: ModifyUserView(user: user, updateUser: updateUser, deleteUser: deleteUser)) {
                     Image(systemName: "pencil.circle.fill").foregroundColor(theme.customYellow)
                 }
             }.padding(5)

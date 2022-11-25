@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct UsersView: View {
+    var tableView = UITableView()
     
-    var data: Array<User>
+    @State var data: Array<User>
     @State var title = "Users"
     @State var titleRanking = "Ranking"
     @State var isRanking = true
@@ -31,7 +32,7 @@ struct UsersView: View {
                 if (isRanking) {
                     RankingUsers(data: data, switchIsRanking: swap)
                 } else {
-                    ModifyUsers(data: data, switchIsRanking: swap)
+                    ModifyUsers(data: data, searchData: data, switchIsRanking: swap, refreshParent: refreshView)
                 }
             }
             .frame(width: 1000)
@@ -41,6 +42,10 @@ struct UsersView: View {
     
     func swap() -> Void {
         isRanking = !isRanking
+    }
+    
+    func refreshView() -> Void {
+        data = UserService().getUsers()
     }
 }
 
