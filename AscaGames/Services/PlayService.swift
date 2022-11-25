@@ -29,7 +29,8 @@ class PlayService {
         print(isSuccess ?? "")
     }
     
-    func deleteUser(idUser: UUID, idMatch: UUID) -> Void {
+    func deletePlay(idUser: UUID, idMatch: UUID) -> Void {
         PlayRepository.deletePlay(UserId: idUser, MatchId: idMatch)
     }
+    
 }

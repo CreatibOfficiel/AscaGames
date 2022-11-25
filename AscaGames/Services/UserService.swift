@@ -32,5 +32,26 @@ class UserService {
     func deleteUser(id: UUID) -> Void {
         UserRepository.deleteUser(userId: id)
     }
+    
+    func getUserStats() -> [UserStats] {
+        let users = getUsers()
+        var plays = PlayService().getPlays()
+        var userStats: [UserStats] = []
+        
+        for user in users {
+            let nbOfMatches = plays.filter { $0.idUser == user.idUser}.count
+            let nbOfWins = plays.filter {$0.idUser == user.idUser && $0.isWinner == true}.count
+            userStats.append(UserStats(user: user, wins: nbOfWins, matches: nbOfMatches))
+        }
+        
+        userStats.sort(by: {higher, lower in
+            return higher.user.elo > lower.user.elo
+        })
+        
+        print(userStats)
+        
+        return userStats
+    }
+
 }
 

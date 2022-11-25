@@ -74,7 +74,7 @@ struct AddUserView: View {
     
     func createUser() -> Void {
         if (self.firstName != "" && self.lastName != "") {
-            let newUser: User = User(idUser: UUID(), firstName: self.firstName, lastName: self.lastName, elo: 1500)
+            let newUser: User = User(idUser: UUID(), firstName: self.firstName, lastName: self.lastName, elo: 1800)
             UserService().addUser(user: newUser)
             refreshView(newUser)
             self.presentationMode.wrappedValue.dismiss()
