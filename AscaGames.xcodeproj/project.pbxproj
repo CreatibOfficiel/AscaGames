@@ -43,6 +43,7 @@
 		F5D3966E292E61850067F2CA /* SqliteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D3966D292E61850067F2CA /* SqliteService.swift */; };
 		F5D39671292E64120067F2CA /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D39670292E64120067F2CA /* UserRepository.swift */; };
 		F5E2D05A2934E58700B0405F /* MatchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E2D0592934E58700B0405F /* MatchHistory.swift */; };
+		F5E2D05C2934F1F100B0405F /* MatchSetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E2D05B2934F1F100B0405F /* MatchSetService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +76,6 @@
 		F558136C292B843600BD8E41 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F5581E6E292BBC6D00D40034 /* MainTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTheme.swift; sourceTree = "<group>"; };
 		F560FC73292BDE67005E4336 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
-		F561F3FA2930A70E009991C5 /* MatchSetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSetService.swift; sourceTree = "<group>"; };
 		F561F3FC2930A88A009991C5 /* MatchSetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSetRepository.swift; sourceTree = "<group>"; };
 		F561F3FE2930AEB9009991C5 /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
 		F561F4002930B07D009991C5 /* PlayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayService.swift; sourceTree = "<group>"; };
@@ -83,6 +83,7 @@
 		F5D3966D292E61850067F2CA /* SqliteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteService.swift; sourceTree = "<group>"; };
 		F5D39670292E64120067F2CA /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		F5E2D0592934E58700B0405F /* MatchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistory.swift; sourceTree = "<group>"; };
+		F5E2D05B2934F1F100B0405F /* MatchSetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchSetService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,8 +194,8 @@
 				F5D3966D292E61850067F2CA /* SqliteService.swift */,
 				F552E871292F619200B9E552 /* MatchTypeService.swift */,
 				F552E877292F65FF00B9E552 /* MatchService.swift */,
-				F561F3FA2930A70E009991C5 /* MatchSetService.swift */,
 				F561F4002930B07D009991C5 /* PlayService.swift */,
+				F5E2D05B2934F1F100B0405F /* MatchSetService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -356,6 +357,7 @@
 				F558134A292B5FB600BD8E41 /* AscaGamesApp.swift in Sources */,
 				F5E2D05A2934E58700B0405F /* MatchHistory.swift in Sources */,
 				F5D39671292E64120067F2CA /* UserRepository.swift in Sources */,
+				F5E2D05C2934F1F100B0405F /* MatchSetService.swift in Sources */,
 				F552E868292F527A00B9E552 /* RankingUsers.swift in Sources */,
 				F558136D292B843600BD8E41 /* User.swift in Sources */,
 				F5581364292B751800BD8E41 /* ModifyUsers.swift in Sources */,

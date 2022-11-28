@@ -48,6 +48,7 @@ struct UsersView: View {
     
     func refreshView() -> Void {
         data = UserService().getUsers()
+        dataStats = UserService().getUserStats()
     }
 }
 

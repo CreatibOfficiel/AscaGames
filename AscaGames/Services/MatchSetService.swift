@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MatchSetService {
+public class MatchSetService {
     
     func getMatchSets() -> [MatchSet] {
         let matchSets = MatchSetRepository.getMatchSets()

@@ -11,4 +11,6 @@ struct MatchHistory: Hashable {
     var teamWin: [User]
     var teamLoose: [User]
     var nbSets: Int
+    var matchType: String
+    var sets: [MatchSet]
 }
