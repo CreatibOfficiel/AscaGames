@@ -46,7 +46,7 @@ struct RankingMatches: View {
                 }
                 
                 VStack {
-                    NavigationLink(destination: AddMatchView()) {
+                    NavigationLink(destination: AddMatchUserView()) {
                         Text("+   N E W   M A T C H")
                             .padding()
                             .frame(width: 250)
