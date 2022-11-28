@@ -22,7 +22,6 @@ struct RankingUserLine: View {
                     .padding(.trailing, 5)
             }.padding(5)
             Divider().frame(width: 320, height: 2).overlay(.white)
-
         }
     }
 }

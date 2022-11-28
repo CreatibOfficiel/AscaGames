@@ -42,6 +42,7 @@
 		F5D3966C292E60590067F2CA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = F5D3966B292E60590067F2CA /* SQLite */; };
 		F5D3966E292E61850067F2CA /* SqliteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D3966D292E61850067F2CA /* SqliteService.swift */; };
 		F5D39671292E64120067F2CA /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D39670292E64120067F2CA /* UserRepository.swift */; };
+		F5E2D05A2934E58700B0405F /* MatchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E2D0592934E58700B0405F /* MatchHistory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		F561F4022930B08B009991C5 /* PlayRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRepository.swift; sourceTree = "<group>"; };
 		F5D3966D292E61850067F2CA /* SqliteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteService.swift; sourceTree = "<group>"; };
 		F5D39670292E64120067F2CA /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		F5E2D0592934E58700B0405F /* MatchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 				F552E87B292F76A200B9E552 /* MatchSet.swift */,
 				F561F3FE2930AEB9009991C5 /* Play.swift */,
 				F50BE1FC293101E200147EAA /* UserStats.swift */,
+				F5E2D0592934E58700B0405F /* MatchHistory.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				F552E872292F619200B9E552 /* MatchTypeService.swift in Sources */,
 				F558134C292B5FB600BD8E41 /* ContentView.swift in Sources */,
 				F558134A292B5FB600BD8E41 /* AscaGamesApp.swift in Sources */,
+				F5E2D05A2934E58700B0405F /* MatchHistory.swift in Sources */,
 				F5D39671292E64120067F2CA /* UserRepository.swift in Sources */,
 				F552E868292F527A00B9E552 /* RankingUsers.swift in Sources */,
 				F558136D292B843600BD8E41 /* User.swift in Sources */,

@@ -32,4 +32,8 @@ class MatchService {
     func deleteMatch(id: UUID) -> Void {
         MatchRepository.deleteMatch(matchId: id)
     }
+    
+    func getMatchHistory() -> [MatchHistory] {
+        return MatchRepository.getMatchHistory()
+    }
 }

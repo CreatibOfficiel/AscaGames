@@ -107,5 +107,30 @@ class MatchRepository {
         }
     }
     
+    static func getMatchHistory() -> [MatchHistory] {
+        guard let database = SqliteService.sharedInstance.database else {
+            print("Datastore connection error")
+            return []
+        }
+        
+        // Contact Array
+        var matchArray = [MatchHistory]()
+        
+        // Sorting data in descending order by
+        let query = try? database.prepare("""
+            SELECT *
+            FROM users
+            INNER JOIN plays ON plays.idUser = users.idUser
+            INNER JOIN matchs ON plays.idMatch = matchs.idMatch
+            GROUP BY idMatch
+        """)
+        
+        for row in query! {
+            print("\(row)")
+        }
+       
+        return matchArray
+    }
+    
 }
 
