@@ -140,11 +140,20 @@ struct AddMatchSetView: View {
                         RoundedRectangle(cornerRadius: 30).stroke(.white, lineWidth: 2)
                     )
             }.padding([.top], 20)
+            .disabled(canCreateMatch())
         }.frame(width: 1000 ,height: 1000)
             .background(Color.black)
     }
     
     func createMatch() -> Void {
-        
+        print(canCreateMatch())
+    }
+    
+    func canCreateMatch() -> Bool {
+        if (twoSets) {
+            return (firstSetLeftScore.isEmpty || firstSetRightScore.isEmpty || secondSetLeftScore.isEmpty || secondSetRightScore.isEmpty)
+        } else {
+            return (firstSetLeftScore.isEmpty || firstSetRightScore.isEmpty || secondSetLeftScore.isEmpty || secondSetRightScore.isEmpty || thirdSetLeftScore.isEmpty || thirdSetRightScore.isEmpty)
+        }
     }
 }

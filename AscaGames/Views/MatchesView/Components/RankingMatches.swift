@@ -34,7 +34,7 @@ struct RankingMatches: View {
                                 RoundedRectangle(cornerRadius: 30).stroke(.white, lineWidth: singleMatch ? 2 : 0)
                             )
                     }.padding([.top,.bottom,.trailing], 10)
-                }.frame(width: 300, height: 80)
+                }.frame(width: 350, height: 80)
                 .background(theme.customYellow)
                 
                 ScrollView {
@@ -59,7 +59,7 @@ struct RankingMatches: View {
                 }
                 .frame(maxWidth: .infinity)
                 .background(theme.customYellow)
-            }.frame(width: 300, height: 500)
+            }.frame(width: 350, height: 550)
             .border(theme.customYellow, width: 5)
         }
     }

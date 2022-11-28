@@ -130,7 +130,9 @@ struct AddMatchUserView: View {
                     )
             }.padding([.top], 80)
             
+            
         }.frame(width: 1000 ,height: 1000)
+        .disabled(canGoToNextStep())
         .background(Color.black)
     }
     
@@ -140,5 +142,13 @@ struct AddMatchUserView: View {
     
     func swapDoubleMatch() -> Void {
         singleMatch = false
+    }
+    
+    func canGoToNextStep() -> Bool {
+        if (singleMatch) {
+            return (firstLeftPlayer.firstName.isEmpty || firstRightPlayer.firstName.isEmpty)
+        } else {
+            return (firstLeftPlayer.firstName.isEmpty || firstRightPlayer.firstName.isEmpty || secondLeftPlayer.firstName.isEmpty || secondRightPlayer.firstName.isEmpty)
+        }
     }
 }
