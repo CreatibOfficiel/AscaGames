@@ -26,6 +26,7 @@ class MatchSetRepository {
         }
         
         do {
+            
             try database.run(table.insert(idMatchSet <- matchSetValues.idMatchSet, idMatch <- matchSetValues.idMatch, numSet <- matchSetValues.numSet, scoreTL <- matchSetValues.scoreTL, scoreTR <- matchSetValues.scoreTR))
             return true
         } catch let error {

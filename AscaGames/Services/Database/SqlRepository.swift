@@ -72,6 +72,9 @@ class SqlRepository {
             try database.run(matchSetsTable.create(ifNotExists: true) { matchSetsTable in
                 matchSetsTable.column(idMatchSet, primaryKey: true)
                 matchSetsTable.column(idMatch)
+                matchSetsTable.column(numSet)
+                matchSetsTable.column(scoreTL)
+                matchSetsTable.column(scoreTR)
                 matchSetsTable.foreignKey(idMatch, references: matchsTable, idMatch, delete: .setNull)
             })
             
@@ -103,6 +106,7 @@ class SqlRepository {
             try database.run(matchTypesTable.drop())
             try database.run(matchsTable.drop())
             try database.run(matchSetsTable.drop())
+            try database.run(PlayTable.drop())
             
         } catch {
             print("drop error: \(error)")

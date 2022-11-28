@@ -35,7 +35,7 @@ class UserService {
     
     func getUserStats() -> [UserStats] {
         let users = getUsers()
-        var plays = PlayService().getPlays()
+        let plays = PlayService().getPlays()
         var userStats: [UserStats] = []
         
         for user in users {

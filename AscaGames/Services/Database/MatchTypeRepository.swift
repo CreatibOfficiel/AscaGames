@@ -10,7 +10,7 @@ import SQLite
 
 class MatchTypeRepository {
     
-    static var table = Table("matchType")
+    static var table = Table("matchTypes")
     
     static let idMatchType = Expression<UUID>("idMatchType")
     static let lib = Expression<String>("lib")
