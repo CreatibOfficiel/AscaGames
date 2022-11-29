@@ -31,6 +31,6 @@ struct MatchHistoryLine: View {
             }
             Image(systemName: "person.fill").foregroundColor(.red)
             
-        }.padding(10)
+        }.padding(.leading ,10).padding(.trailing, 10)
     }
 }

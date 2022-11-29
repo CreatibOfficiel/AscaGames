@@ -39,8 +39,13 @@ struct ModifyUsers: View {
                         Spacer(minLength: 5)
                     }.padding(10)
                 }.frame(width: 350, height: 60)
-                    .background(theme.customYellow)
-                
+                    .background(
+                       Rectangle()
+                        .fill(theme.customYellow)
+                        .padding(.bottom, 20)
+                        .cornerRadius(20)
+                        .padding(.bottom, -20)
+                    )
                 ScrollView {
                     NavigationLink(destination: AddUserView(refreshView: addUserAndRefreshView)) {
                         HStack () {
@@ -73,9 +78,19 @@ struct ModifyUsers: View {
                     }.padding([.top,.bottom], 10)
                 }
                 .frame(maxWidth: .infinity)
-                .background(theme.customYellow)
+                .background(
+                   Rectangle()
+                    .fill(theme.customYellow)
+                    .padding(.top, 50)
+                    .cornerRadius(50)
+                    .padding(.top, -50)
+                )
             }.frame(width: 350, height: 550)
-                .border(theme.customYellow, width: 5)
+            .overlay(
+               RoundedRectangle(cornerRadius: 50)
+                   .stroke(theme.customYellow, lineWidth: 10)
+            )
+            
         }
     }
     
