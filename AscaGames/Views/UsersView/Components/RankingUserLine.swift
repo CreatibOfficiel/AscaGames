@@ -13,13 +13,16 @@ struct RankingUserLine: View {
     var body: some View {
         VStack {
             HStack {
-                Text(" #\(ranking)").fontWeight(.bold).foregroundColor(.white).padding(.leading, 5)
+                Text(" #\(ranking)").fontWeight(.heavy).foregroundColor(.white).padding(.leading, 5)
                 Text(userStat.user.firstName).foregroundColor(theme.customYellow)
                 Text(userStat.user.lastName.prefix(1) + ".").foregroundColor(theme.customYellow)
                 Spacer()
-                Text("\(userStat.wins) victoires / \(userStat.matches) matchs")
-                    .foregroundColor(.white)
-                    .padding(.trailing, 5)
+                Group {
+                    Text("\(userStat.wins)").foregroundColor(theme.customYellow)
+                    + Text(" victoires / ").foregroundColor(.white)
+                    + Text("\(userStat.matches)").foregroundColor(theme.customYellow)
+                    + Text(" matchs").foregroundColor(.white)
+                }.padding(.trailing, 5)
             }.padding(5)
             Divider().frame(width: 320, height: 2).overlay(.white)
         }

@@ -38,8 +38,8 @@ class MatchService {
         //Get all data required before filtering
         let matchs = MatchService().getMatchs()
         let matchTypes = MatchTypeService().getMatchTypes()
-        var sets = MatchSetService().getMatchSets()
-        var users = UserService().getUsers()
+        let sets = MatchSetService().getMatchSets()
+        let users = UserService().getUsers()
         let plays = PlayService().getPlays()
         
         var MatchHistories: [MatchHistory] = []
@@ -78,8 +78,8 @@ class MatchService {
         //Get all data required before filtering
         let matchs = MatchService().getMatchs()
         let matchTypes = MatchTypeService().getMatchTypes()
-        var sets = MatchSetService().getMatchSets()
-        var users = UserService().getUsers()
+        let sets = MatchSetService().getMatchSets()
+        let users = UserService().getUsers()
         let plays = PlayService().getPlays()
         
         var MatchHistories: [MatchHistory] = []
