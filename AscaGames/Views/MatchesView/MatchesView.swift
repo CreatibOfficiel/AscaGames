@@ -9,10 +9,10 @@ import SwiftUI
 
 struct MatchesView: View {
     
-    @State var data : Array<Match>
+    @State var data : Array<MatchHistory>
     
     init() {
-        data = MatchService().getMatchs()
+        data = MatchService().getMatchHistory1v1()
     }
     
     var body: some View {

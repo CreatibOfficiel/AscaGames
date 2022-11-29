@@ -129,11 +129,14 @@ class MatchService {
         //Add losers
         for looser in matchHistory.teamLoose {
             PlayService().addPlay(play: Play(idUser: looser.idUser, idMatch: matchAdded.idMatch, isWinner: false))
+            
         }
         
         //add sets
         for set in matchHistory.sets {
             MatchSetService().addMatchSet(matchSet: MatchSet(idMatchSet: set.idMatchSet, idMatch: matchAdded.idMatch, numSet: set.numSet, scoreTL: set.scoreTL, scoreTR: set.scoreTR))
         }
+        
+        UserService().updateElo(matchHistory: matchHistory)
     }
 }
