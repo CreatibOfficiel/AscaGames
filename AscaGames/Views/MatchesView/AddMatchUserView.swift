@@ -129,10 +129,10 @@ struct AddMatchUserView: View {
                         RoundedRectangle(cornerRadius: 30).stroke(.white, lineWidth: 2)
                     )
             }.padding([.top], 80)
+             .disabled(canGoToNextStep())
             
             
         }.frame(width: 1000 ,height: 1000)
-        .disabled(canGoToNextStep())
         .background(Color.black)
     }
     

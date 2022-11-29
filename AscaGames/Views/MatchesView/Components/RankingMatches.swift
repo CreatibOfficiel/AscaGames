@@ -2,7 +2,7 @@ import SwiftUI
 
 struct RankingMatches: View {
     
-    @State var data : Array<Match>
+    @State var data : Array<MatchHistory>
     @State var singleMatch : Bool = true
     
     var body: some View {
@@ -40,7 +40,8 @@ struct RankingMatches: View {
                 ScrollView {
                     Spacer()
                     ForEach(data, id: \.self) { u in
-                        
+                        MatchHistoryLine(match:u)
+                        Divider().frame(width: 290, height: 2).overlay(.white)
                     }
                     Spacer()
                 }

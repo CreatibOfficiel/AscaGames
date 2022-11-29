@@ -40,6 +40,10 @@
 		F561F3FF2930AEB9009991C5 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F3FE2930AEB9009991C5 /* Play.swift */; };
 		F561F4012930B07D009991C5 /* PlayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F4002930B07D009991C5 /* PlayService.swift */; };
 		F561F4032930B08B009991C5 /* PlayRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F4022930B08B009991C5 /* PlayRepository.swift */; };
+		F59E172E2935ECE000297907 /* TabRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59E172D2935ECE000297907 /* TabRules.swift */; };
+		F59E17302935F74F00297907 /* PingPongRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59E172F2935F74F00297907 /* PingPongRules.swift */; };
+		F59E17322935F79C00297907 /* BabyFootRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59E17312935F79C00297907 /* BabyFootRules.swift */; };
+		F59E17342936072000297907 /* MatchHistoryLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59E17332936072000297907 /* MatchHistoryLine.swift */; };
 		F5D3966C292E60590067F2CA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = F5D3966B292E60590067F2CA /* SQLite */; };
 		F5D3966E292E61850067F2CA /* SqliteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D3966D292E61850067F2CA /* SqliteService.swift */; };
 		F5D39671292E64120067F2CA /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D39670292E64120067F2CA /* UserRepository.swift */; };
@@ -82,6 +86,10 @@
 		F561F3FE2930AEB9009991C5 /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
 		F561F4002930B07D009991C5 /* PlayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayService.swift; sourceTree = "<group>"; };
 		F561F4022930B08B009991C5 /* PlayRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRepository.swift; sourceTree = "<group>"; };
+		F59E172D2935ECE000297907 /* TabRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabRules.swift; sourceTree = "<group>"; };
+		F59E172F2935F74F00297907 /* PingPongRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingPongRules.swift; sourceTree = "<group>"; };
+		F59E17312935F79C00297907 /* BabyFootRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyFootRules.swift; sourceTree = "<group>"; };
+		F59E17332936072000297907 /* MatchHistoryLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistoryLine.swift; sourceTree = "<group>"; };
 		F5D3966D292E61850067F2CA /* SqliteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteService.swift; sourceTree = "<group>"; };
 		F5D39670292E64120067F2CA /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		F5E2D0592934E58700B0405F /* MatchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistory.swift; sourceTree = "<group>"; };
@@ -104,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				F50BE2002931123E00147EAA /* RankingMatches.swift */,
+				F59E17332936072000297907 /* MatchHistoryLine.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -202,6 +211,16 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		F59E172C2935EC1600297907 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F59E172D2935ECE000297907 /* TabRules.swift */,
+				F59E172F2935F74F00297907 /* PingPongRules.swift */,
+				F59E17312935F79C00297907 /* BabyFootRules.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		F5D3966F292E63AE0067F2CA /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +259,7 @@
 		F5D39674292E77830067F2CA /* DashBoardView */ = {
 			isa = PBXGroup;
 			children = (
+				F59E172C2935EC1600297907 /* Components */,
 				F5581358292B643F00BD8E41 /* DashBoardView.swift */,
 			);
 			path = DashBoardView;
@@ -334,6 +354,7 @@
 			files = (
 				F552E878292F65FF00B9E552 /* MatchService.swift in Sources */,
 				F558135D292B649800BD8E41 /* UsersView.swift in Sources */,
+				F59E17302935F74F00297907 /* PingPongRules.swift in Sources */,
 				BB1CA9D9292F725D00FC3CF2 /* ModifyUserView.swift in Sources */,
 				BB28D292292FFE8400203096 /* AddUserView.swift in Sources */,
 				F5D3966E292E61850067F2CA /* SqliteService.swift in Sources */,
@@ -355,10 +376,13 @@
 				F552E870292F5F4B00B9E552 /* MatchTypeRepository.swift in Sources */,
 				F561F3FD2930A88A009991C5 /* MatchSetRepository.swift in Sources */,
 				F552E87A292F6F9100B9E552 /* SqlRepository.swift in Sources */,
+				F59E172E2935ECE000297907 /* TabRules.swift in Sources */,
 				F552E872292F619200B9E552 /* MatchTypeService.swift in Sources */,
 				F558134C292B5FB600BD8E41 /* ContentView.swift in Sources */,
+				F59E17342936072000297907 /* MatchHistoryLine.swift in Sources */,
 				F558134A292B5FB600BD8E41 /* AscaGamesApp.swift in Sources */,
 				F5E2D05A2934E58700B0405F /* MatchHistory.swift in Sources */,
+				F59E17322935F79C00297907 /* BabyFootRules.swift in Sources */,
 				F5D39671292E64120067F2CA /* UserRepository.swift in Sources */,
 				F5E2D05C2934F1F100B0405F /* MatchSetService.swift in Sources */,
 				F552E868292F527A00B9E552 /* RankingUsers.swift in Sources */,
