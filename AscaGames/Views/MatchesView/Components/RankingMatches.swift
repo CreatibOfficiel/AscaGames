@@ -2,7 +2,8 @@ import SwiftUI
 
 struct RankingMatches: View {
     
-    @State var data : Array<MatchHistory>
+    @State var data1v1 : Array<MatchHistory>
+    @State var data2v2 : Array<MatchHistory>
     @State var singleMatch : Bool = true
     
     var body: some View {
@@ -44,10 +45,18 @@ struct RankingMatches: View {
                     )
                 ScrollView {
                     Spacer()
-                    ForEach(data, id: \.self) { u in
-                        MatchHistoryLine(match:u)
-                        Divider().frame(width: 290, height: 2).overlay(.white)
+                    if(singleMatch){
+                        ForEach(data1v1, id: \.self) { u in
+                            MatchHistoryLine(match:u)
+                            Divider().frame(width: 290, height: 2).overlay(.white)
+                        }
+                    } else {
+                        ForEach(data2v2, id: \.self) { u in
+                            MatchHistoryLine(match:u)
+                            Divider().frame(width: 290, height: 2).overlay(.white)
+                        }
                     }
+
                     Spacer()
                 }
                 
