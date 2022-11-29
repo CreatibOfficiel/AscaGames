@@ -52,6 +52,21 @@ class UserService {
         
         return userStats
     }
-
+    
+    func updateElo(matchHistory: MatchHistory) -> Void {
+        let nbPlayers = matchHistory.teamWin.count
+        var eloWin = 0
+        var eloLoose = 0
+        
+        for i in 0...nbPlayers - 1 {
+            eloWin += matchHistory.teamWin[i].elo
+            eloLoose += matchHistory.teamLoose[i].elo
+        }
+        
+        eloWin = eloWin / nbPlayers
+        eloLoose = eloLoose / nbPlayers
+        
+        
+    }
 }
 

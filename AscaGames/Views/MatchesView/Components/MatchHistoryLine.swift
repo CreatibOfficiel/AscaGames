@@ -12,7 +12,10 @@ struct MatchHistoryLine: View {
     
     var body: some View {
         HStack {
-            Image(systemName: "person.fill").foregroundColor(.green)
+            
+            match.teamWin.count > 1
+            ? Image(systemName: "person.2.fill").foregroundColor(.green)
+            : Image(systemName: "person.fill").foregroundColor(.green)
             VStack {
                 ForEach(match.teamWin, id: \.self) { m in
                     Text(m.firstName + " " + m.lastName.prefix(1) + ".").foregroundColor(theme.customYellow)
