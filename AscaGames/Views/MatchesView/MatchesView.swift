@@ -9,10 +9,13 @@ import SwiftUI
 
 struct MatchesView: View {
     
-    @State var data : Array<MatchHistory>
+    @State var data1v1 : Array<MatchHistory>
+    @State var data2v2 : Array<MatchHistory>
+
     
     init() {
-        data = MatchService().getMatchHistory1v1()
+        data1v1 = MatchService().getMatchHistory1v1()
+        data2v2 = MatchService().getMatchHistory2v2()
     }
     
     var body: some View {
@@ -25,7 +28,7 @@ struct MatchesView: View {
                 Text("ALL MATCHES").foregroundColor(.white)
                 Spacer().frame(height: 60)
                 
-                RankingMatches(data: data)
+                RankingMatches(data1v1: data1v1, data2v2: data2v2)
             }
             .frame(width: 1000)
             .background(Color.black)

@@ -57,6 +57,7 @@ class UserService {
         let nbPlayers = matchHistory.teamWin.count
         var eloWin = 0
         var eloLoose = 0
+        var pointsPlayed = 0
         
         for i in 0...nbPlayers - 1 {
             eloWin += matchHistory.teamWin[i].elo
@@ -66,7 +67,36 @@ class UserService {
         eloWin = eloWin / nbPlayers
         eloLoose = eloLoose / nbPlayers
         
+        //get elo diff
+        var eloDiff = 0
         
+        if(eloWin > eloLoose) {
+            eloDiff = eloWin - eloLoose
+        }
+        if(eloLoose > eloWin) {
+            eloDiff = eloLoose - eloWin
+        }
+        
+        //Set points to win/lose
+        if(eloDiff > 100) {
+            pointsPlayed = 100 / (eloDiff / 100)
+        } else {
+            if(eloDiff > 1000) {
+                pointsPlayed = 10
+            } else {
+                pointsPlayed = 100
+            }
+        }
+        
+        for i in 0...nbPlayers - 1 {
+            var winner = matchHistory.teamWin[i]
+            winner.elo += pointsPlayed
+            updateUser(user: winner)
+            
+            var looser = matchHistory.teamLoose[i]
+            looser.elo -= pointsPlayed
+            updateUser(user: looser)
+        }
     }
 }
 
