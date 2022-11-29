@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		BB1CA9D9292F725D00FC3CF2 /* ModifyUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1CA9D8292F725D00FC3CF2 /* ModifyUserView.swift */; };
 		BB28D292292FFE8400203096 /* AddUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB28D291292FFE8400203096 /* AddUserView.swift */; };
+		BB963B482935E83A00F744E6 /* SelectUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB963B472935E83A00F744E6 /* SelectUserView.swift */; };
+		BB963B4A2935EFF400F744E6 /* SelectUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB963B492935EFF400F744E6 /* SelectUser.swift */; };
+		BB963B4C2935F7AE00F744E6 /* SelectUserLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB963B4B2935F7AE00F744E6 /* SelectUserLine.swift */; };
 		BBE47AEB2934FC1D004557B2 /* AddMatchSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE47AEA2934FC1D004557B2 /* AddMatchSetView.swift */; };
 		F50BE1FD293101E200147EAA /* UserStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50BE1FC293101E200147EAA /* UserStats.swift */; };
 		F50BE2012931123E00147EAA /* RankingMatches.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50BE2002931123E00147EAA /* RankingMatches.swift */; };
@@ -50,6 +53,9 @@
 /* Begin PBXFileReference section */
 		BB1CA9D8292F725D00FC3CF2 /* ModifyUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyUserView.swift; sourceTree = "<group>"; };
 		BB28D291292FFE8400203096 /* AddUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserView.swift; sourceTree = "<group>"; };
+		BB963B472935E83A00F744E6 /* SelectUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserView.swift; sourceTree = "<group>"; };
+		BB963B492935EFF400F744E6 /* SelectUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUser.swift; sourceTree = "<group>"; };
+		BB963B4B2935F7AE00F744E6 /* SelectUserLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserLine.swift; sourceTree = "<group>"; };
 		BBE47AEA2934FC1D004557B2 /* AddMatchSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMatchSetView.swift; sourceTree = "<group>"; };
 		F50BE1FC293101E200147EAA /* UserStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStats.swift; sourceTree = "<group>"; };
 		F50BE2002931123E00147EAA /* RankingMatches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingMatches.swift; sourceTree = "<group>"; };
@@ -222,6 +228,7 @@
 				F558135C292B649800BD8E41 /* UsersView.swift */,
 				BB1CA9D8292F725D00FC3CF2 /* ModifyUserView.swift */,
 				BB28D291292FFE8400203096 /* AddUserView.swift */,
+				BB963B472935E83A00F744E6 /* SelectUserView.swift */,
 			);
 			path = UsersView;
 			sourceTree = "<group>";
@@ -233,6 +240,8 @@
 				F5581363292B751800BD8E41 /* ModifyUsers.swift */,
 				F552E867292F527A00B9E552 /* RankingUsers.swift */,
 				F552E869292F52F000B9E552 /* RankingUserLine.swift */,
+				BB963B492935EFF400F744E6 /* SelectUser.swift */,
+				BB963B4B2935F7AE00F744E6 /* SelectUserLine.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -341,6 +350,7 @@
 				F50BE2012931123E00147EAA /* RankingMatches.swift in Sources */,
 				F558136A292B835800BD8E41 /* EditUserLine.swift in Sources */,
 				F552E86A292F52F000B9E552 /* RankingUserLine.swift in Sources */,
+				BB963B482935E83A00F744E6 /* SelectUserView.swift in Sources */,
 				F552E876292F64D400B9E552 /* MatchRepository.swift in Sources */,
 				F561F4012930B07D009991C5 /* PlayService.swift in Sources */,
 				F561F4032930B08B009991C5 /* PlayRepository.swift in Sources */,
@@ -355,6 +365,7 @@
 				F552E870292F5F4B00B9E552 /* MatchTypeRepository.swift in Sources */,
 				F561F3FD2930A88A009991C5 /* MatchSetRepository.swift in Sources */,
 				F552E87A292F6F9100B9E552 /* SqlRepository.swift in Sources */,
+				BB963B4C2935F7AE00F744E6 /* SelectUserLine.swift in Sources */,
 				F552E872292F619200B9E552 /* MatchTypeService.swift in Sources */,
 				F558134C292B5FB600BD8E41 /* ContentView.swift in Sources */,
 				F558134A292B5FB600BD8E41 /* AscaGamesApp.swift in Sources */,
@@ -363,6 +374,7 @@
 				F5E2D05C2934F1F100B0405F /* MatchSetService.swift in Sources */,
 				F552E868292F527A00B9E552 /* RankingUsers.swift in Sources */,
 				F558136D292B843600BD8E41 /* User.swift in Sources */,
+				BB963B4A2935EFF400F744E6 /* SelectUser.swift in Sources */,
 				F5581364292B751800BD8E41 /* ModifyUsers.swift in Sources */,
 				F50BE2032931126800147EAA /* AddMatchUserView.swift in Sources */,
 				BBE47AEB2934FC1D004557B2 /* AddMatchSetView.swift in Sources */,

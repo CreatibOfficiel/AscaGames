@@ -56,7 +56,7 @@ struct AddMatchUserView: View {
             Divider().frame(width: 230, height: 2).overlay(.white).padding([.bottom], 60)
             
             HStack {
-                NavigationLink(destination: ContentView()) {
+                NavigationLink(destination: SelectUserView(updateUserSelected: updateFirstLeftUserSelected(selectedUser:))) {
                     HStack (alignment: .center, spacing: 10) {
                         Image(systemName: "person.fill")
                             .foregroundColor(theme.customYellow)
@@ -71,7 +71,7 @@ struct AddMatchUserView: View {
                 
                 Spacer().frame(width: 40)
                 
-                NavigationLink(destination: ContentView()) {
+                NavigationLink(destination: SelectUserView(updateUserSelected: updateFirstRightUserSelected(selectedUser:))) {
                     Spacer(minLength: 20)
                     HStack (alignment: .center, spacing: 10) {
                         Text(firstRightPlayer.firstName).foregroundColor(theme.customYellow)
@@ -89,7 +89,7 @@ struct AddMatchUserView: View {
             
             if (!singleMatch) {
                 HStack {
-                    NavigationLink(destination: ContentView()) {
+                    NavigationLink(destination: SelectUserView(updateUserSelected: updateSecondLeftUserSelected(selectedUser:))) {
                         HStack (alignment: .center, spacing: 10) {
                             Image(systemName: "person.fill")
                                 .foregroundColor(theme.customYellow)
@@ -104,7 +104,7 @@ struct AddMatchUserView: View {
                     
                     Spacer().frame(width: 40)
                     
-                    NavigationLink(destination: ContentView()) {
+                    NavigationLink(destination: SelectUserView(updateUserSelected: updateSecondRightUserSelected(selectedUser:))) {
                         Spacer(minLength: 20)
                         HStack (alignment: .center, spacing: 10) {
                             Text(secondRightPlayer.firstName).foregroundColor(theme.customYellow)
@@ -129,10 +129,10 @@ struct AddMatchUserView: View {
                         RoundedRectangle(cornerRadius: 30).stroke(.white, lineWidth: 2)
                     )
             }.padding([.top], 80)
+            .disabled(canGoToNextStep())
             
             
         }.frame(width: 1000 ,height: 1000)
-        .disabled(canGoToNextStep())
         .background(Color.black)
     }
     
@@ -150,5 +150,21 @@ struct AddMatchUserView: View {
         } else {
             return (firstLeftPlayer.firstName.isEmpty || firstRightPlayer.firstName.isEmpty || secondLeftPlayer.firstName.isEmpty || secondRightPlayer.firstName.isEmpty)
         }
+    }
+    
+    func updateFirstLeftUserSelected(selectedUser: User) -> Void {
+        firstLeftPlayer = selectedUser
+    }
+    
+    func updateFirstRightUserSelected(selectedUser: User) -> Void {
+        firstRightPlayer = selectedUser
+    }
+    
+    func updateSecondLeftUserSelected(selectedUser: User) -> Void {
+        secondLeftPlayer = selectedUser
+    }
+    
+    func updateSecondRightUserSelected(selectedUser: User) -> Void {
+        secondRightPlayer = selectedUser
     }
 }
