@@ -9,7 +9,9 @@ import SwiftUI
 
 struct AddMatchSetView: View {
     
-    @State private var twoSets = true
+    @State private var threeSets = true
+    @State var teamsExist: Bool
+    
     @State private var firstSetLeftScore = ""
     @State private var firstSetRightScore = ""
     @State private var secondSetLeftScore = ""
@@ -21,6 +23,8 @@ struct AddMatchSetView: View {
     @State var firstRightPlayer : User
     @State var secondLeftPlayer : User
     @State var secondRightPlayer : User
+    
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack(spacing: 0) {
@@ -34,7 +38,7 @@ struct AddMatchSetView: View {
             HStack {
                 Text("2 sets").foregroundColor(.white)
                 
-                Toggle(isOn: $twoSets, label: {})
+                Toggle(isOn: $threeSets, label: {})
                     .padding()
                 
                 Text("3 sets").foregroundColor(.white)
@@ -102,7 +106,7 @@ struct AddMatchSetView: View {
                     .frame(width: 120, height: 30)
             }.padding([.bottom], 40)
             
-            if (twoSets) {
+            if (threeSets) {
                 HStack {
                     HStack {
                         HStack (alignment: .center, spacing: 10) {
@@ -150,7 +154,7 @@ struct AddMatchSetView: View {
     }
     
     func createMatch() -> Void {
-        if (twoSets) {
+        if (!threeSets) {
             let firstBiggestNumber = max(firstSetLeftScore, firstSetRightScore)
             
             let set1 = MatchSet(idMatchSet: UUID(), idMatch: UUID(), numSet: 1, scoreTL: Int(firstSetLeftScore) ?? 0, scoreTR: Int(firstSetRightScore) ?? 0)
@@ -158,12 +162,22 @@ struct AddMatchSetView: View {
             
             if (firstBiggestNumber == firstSetLeftScore) {
                 // winner left team
-                let matchHistory = MatchHistory(teamWin: [firstLeftPlayer], teamLoose: [firstRightPlayer], nbSets: 2, matchType: "ping pong", sets: [set1, set2])
-                MatchService().addMatchHistory(matchHistory: matchHistory)
+                if (teamsExist) {
+                    let matchHistory = MatchHistory(teamWin: [firstLeftPlayer, secondLeftPlayer], teamLoose: [firstRightPlayer, secondRightPlayer], nbSets: 2, matchType: "ping pong", sets: [set1, set2])
+                    MatchService().addMatchHistory(matchHistory: matchHistory)
+                } else {
+                    let matchHistory = MatchHistory(teamWin: [firstLeftPlayer], teamLoose: [firstRightPlayer], nbSets: 2, matchType: "ping pong", sets: [set1, set2])
+                    MatchService().addMatchHistory(matchHistory: matchHistory)
+                }
             } else {
                 // winner right team
-                let matchHistory = MatchHistory(teamWin: [firstRightPlayer], teamLoose: [firstLeftPlayer], nbSets: 2, matchType: "ping pong", sets: [set1, set2])
-                MatchService().addMatchHistory(matchHistory: matchHistory)
+                if (teamsExist) {
+                    let matchHistory = MatchHistory(teamWin: [firstRightPlayer, secondRightPlayer], teamLoose: [firstLeftPlayer, secondLeftPlayer], nbSets: 2, matchType: "ping pong", sets: [set1, set2])
+                    MatchService().addMatchHistory(matchHistory: matchHistory)
+                } else {
+                    let matchHistory = MatchHistory(teamWin: [firstRightPlayer], teamLoose: [firstLeftPlayer], nbSets: 2, matchType: "ping pong", sets: [set1, set2])
+                    MatchService().addMatchHistory(matchHistory: matchHistory)
+                }
             }
         } else {
             let firstBiggestNumber = max(firstSetLeftScore, firstSetRightScore)
@@ -181,18 +195,30 @@ struct AddMatchSetView: View {
             secondBiggestNumber == secondSetLeftScore &&
             thirdBiggestNumber == thirdSetLeftScore) {
                 // winner left team
-                let matchHistory = MatchHistory(teamWin: [firstLeftPlayer, secondLeftPlayer], teamLoose: [firstRightPlayer, secondRightPlayer], nbSets: 3, matchType: "ping pong", sets: [set1, set2, set3])
-                MatchService().addMatchHistory(matchHistory: matchHistory)
+                if (teamsExist) {
+                    let matchHistory = MatchHistory(teamWin: [firstLeftPlayer, secondLeftPlayer], teamLoose: [firstRightPlayer, secondRightPlayer], nbSets: 3, matchType: "ping pong", sets: [set1, set2, set3])
+                    MatchService().addMatchHistory(matchHistory: matchHistory)
+                } else {
+                    let matchHistory = MatchHistory(teamWin: [firstLeftPlayer], teamLoose: [firstRightPlayer], nbSets: 3, matchType: "ping pong", sets: [set1, set2, set3])
+                    MatchService().addMatchHistory(matchHistory: matchHistory)
+                }
             } else {
                 // winner right team
-                let matchHistory = MatchHistory(teamWin: [firstRightPlayer, secondRightPlayer], teamLoose: [firstLeftPlayer, secondLeftPlayer], nbSets: 3, matchType: "ping pong", sets: [set1, set2, set3])
-                MatchService().addMatchHistory(matchHistory: matchHistory)
+                if (teamsExist) {
+                    let matchHistory = MatchHistory(teamWin: [firstRightPlayer, secondRightPlayer], teamLoose: [firstLeftPlayer, secondLeftPlayer], nbSets: 3, matchType: "ping pong", sets: [set1, set2, set3])
+                    MatchService().addMatchHistory(matchHistory: matchHistory)
+                } else {
+                    let matchHistory = MatchHistory(teamWin: [firstRightPlayer], teamLoose: [firstLeftPlayer], nbSets: 3, matchType: "ping pong", sets: [set1, set2, set3])
+                    MatchService().addMatchHistory(matchHistory: matchHistory)
+                }
             }
         }
+        
+        self.presentationMode.wrappedValue.dismiss()
     }
     
     func canCreateMatch() -> Bool {
-        if (twoSets) {
+        if (!threeSets) {
             return (firstSetLeftScore.isEmpty || firstSetRightScore.isEmpty || secondSetLeftScore.isEmpty || secondSetRightScore.isEmpty)
         } else {
             return (firstSetLeftScore.isEmpty || firstSetRightScore.isEmpty || secondSetLeftScore.isEmpty || secondSetRightScore.isEmpty || thirdSetLeftScore.isEmpty || thirdSetRightScore.isEmpty)

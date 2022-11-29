@@ -121,7 +121,7 @@ struct AddMatchUserView: View {
                 }.padding([.top], 10)
             }
             
-            NavigationLink(destination: AddMatchSetView(firstLeftPlayer: firstLeftPlayer, firstRightPlayer: firstRightPlayer, secondLeftPlayer: secondLeftPlayer, secondRightPlayer: secondRightPlayer)) {
+            NavigationLink(destination: AddMatchSetView(teamsExist: !singleMatch, firstLeftPlayer: firstLeftPlayer, firstRightPlayer: firstRightPlayer, secondLeftPlayer: secondLeftPlayer, secondRightPlayer: secondRightPlayer)) {
                 Text("N E X T")
                     .padding()
                     .frame(width: 250)
