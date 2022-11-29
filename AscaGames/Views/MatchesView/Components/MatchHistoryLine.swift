@@ -32,8 +32,9 @@ struct MatchHistoryLine: View {
                     Text(m.firstName + " " + m.lastName.prefix(1) + ".").foregroundColor(theme.customYellow)
                 }
             }
-            Image(systemName: "person.fill").foregroundColor(.red)
-            
+            match.teamLoose.count > 1
+            ? Image(systemName: "person.2.fill").foregroundColor(.red)
+            : Image(systemName: "person.fill").foregroundColor(.red)
         }.padding(.leading ,10).padding(.trailing, 10)
     }
 }

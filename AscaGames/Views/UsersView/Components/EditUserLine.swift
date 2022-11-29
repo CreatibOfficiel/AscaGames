@@ -20,9 +20,12 @@ struct EditUserLine: View {
                 Text(user.lastName.prefix(1) + ".").foregroundColor(theme.customYellow)
                 Spacer()
                 NavigationLink(destination: ModifyUserView(user: user, updateUser: updateUser, deleteUser: deleteUser)) {
-                    Image(systemName: "pencil.circle.fill").foregroundColor(theme.customYellow)
+                    Image(systemName: "pencil.circle.fill").foregroundColor(theme.customYellow).font(.system(size: 32))
                 }
-            }.padding(5)
+            }.padding(.leading, 5)
+             .padding(.trailing, 5)
+             .padding(.bottom, -5)
+             .padding(.top, -5)
             Divider().frame(width: 320, height: 2).overlay(.white)
         }
     }
