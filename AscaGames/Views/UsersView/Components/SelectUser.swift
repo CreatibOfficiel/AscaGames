@@ -13,6 +13,7 @@ struct SelectUser: View {
     @State var searchData: Array<User>
     @State private var searchText = ""
     
+    @State var listOfUsersSelected: [User] = []
     @State var updateUserSelected: (User) -> Void
     
     var body: some View {
@@ -41,7 +42,7 @@ struct SelectUser: View {
                     Spacer()
                     ForEach(searchData, id: \.self) { u in
                         let myUser = User(idUser: u.idUser, firstName: u.firstName, lastName: u.lastName, elo: u.elo)
-                        SelectUserLine(selectedUser: myUser, updateUserSelected: updateUserSelected)
+                        SelectUserLine(selectedUser: myUser, listOfUsersSelected: listOfUsersSelected, updateUserSelected: updateUserSelected)
                     }
                     Spacer()
                 }
