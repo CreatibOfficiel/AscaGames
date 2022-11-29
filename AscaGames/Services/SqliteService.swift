@@ -31,11 +31,14 @@ class SqliteService {
     }
     
     func createTable() {
+        //SqlRepository.dropTables()
+        
         SqlRepository.createTables()
         if(MatchTypeService().getMatchTypes().count == 0) {
             addMatchType()
         }
         //addMatch()
+        //addMatch2()
         
     }
     
@@ -53,6 +56,21 @@ class SqliteService {
         let set2 = MatchSet(idMatchSet: UUID(), idMatch: UUID(), numSet: 2, scoreTL: 10, scoreTR: 1)
         
         let matchHistory = MatchHistory(teamWin: [torgue], teamLoose: [splinter], nbSets: 2, matchType: "babyfoot", sets: [set1, set2])
+        
+        MatchService().addMatchHistory(matchHistory: matchHistory)
+    }
+    
+    func addMatch2() {
+        let users = UserService().getUsers()
+        let torgue: User = users.first(where: {$0.firstName == "Torgue"})!
+        let splinter: User = users.first(where: {$0.firstName == "Splinter"})!
+        let bilbo: User = users.first(where: {$0.firstName == "Bilbo"})!
+        let geralt: User = users.first(where: {$0.firstName == "Geralt"})!
+        
+        let set1 = MatchSet(idMatchSet: UUID(), idMatch: UUID(), numSet: 1, scoreTL: 10, scoreTR: 3)
+        let set2 = MatchSet(idMatchSet: UUID(), idMatch: UUID(), numSet: 2, scoreTL: 10, scoreTR: 1)
+        
+        let matchHistory = MatchHistory(teamWin: [splinter, bilbo], teamLoose: [torgue, geralt], nbSets: 2, matchType: "ping pong", sets: [set1, set2])
         
         MatchService().addMatchHistory(matchHistory: matchHistory)
     }
