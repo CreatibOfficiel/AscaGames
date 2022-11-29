@@ -10,7 +10,7 @@ import SwiftUI
 struct SelectUserLine: View {
     
     @State var selectedUser : User
-    
+    @State var listOfUsersSelected: [User] = []
     @State var updateUserSelected: (User) -> Void
     
     var body: some View {
@@ -21,7 +21,7 @@ struct SelectUserLine: View {
                 Text(selectedUser.lastName.prefix(1) + ".").foregroundColor(theme.customYellow)
                 Spacer()
                 Button(action: selectUser) {
-                    Text("SELECT")
+                    Text(listOfUsersSelected.contains(selectedUser) ? "✓" : "SELECT")
                         .padding()
                         .frame(width: 95, height: 30)
                         .background(theme.customYellow)
@@ -29,7 +29,7 @@ struct SelectUserLine: View {
                         .overlay(
                             RoundedRectangle(cornerRadius: 30).stroke(.white, lineWidth: 2)
                         )
-                }
+                }.disabled(listOfUsersSelected.contains(selectedUser))
             }.padding([.trailing, .leading], 20)
             Divider().frame(width: 320, height: 2).overlay(.white)
         }

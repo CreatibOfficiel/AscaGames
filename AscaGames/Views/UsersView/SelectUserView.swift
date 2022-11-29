@@ -10,6 +10,7 @@ import SwiftUI
 struct SelectUserView: View {
     
     @State var updateUserSelected: (User) -> Void
+    @State var listOfUsersSelected: [User] = []
     
     @Environment(\.presentationMode) var presentationMode
 
@@ -23,7 +24,7 @@ struct SelectUserView: View {
                 Text("SELECT USER").foregroundColor(.white)
                 Spacer().frame(height: 60)
                 
-                SelectUser(data: UserService().getUsers(), searchData: UserService().getUsers(), updateUserSelected: closeView(user:))
+                SelectUser(data: UserService().getUsers(), searchData: UserService().getUsers(), listOfUsersSelected: listOfUsersSelected, updateUserSelected: closeView(user:))
             }
             .frame(width: 1000)
             .background(Color.black)

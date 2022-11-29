@@ -16,6 +16,8 @@ struct AddMatchUserView: View {
     @State var secondLeftPlayer : User = User(idUser: UUID(), firstName: "", lastName: "", elo: 0)
     @State var secondRightPlayer : User = User(idUser: UUID(), firstName: "", lastName: "", elo: 0)
     
+    @State var listOfUsersSelected : [User] = []
+    
     var body: some View {
         VStack(spacing: 0) {
             Text("PING PONG")
@@ -56,7 +58,7 @@ struct AddMatchUserView: View {
             Divider().frame(width: 230, height: 2).overlay(.white).padding([.bottom], 60)
             
             HStack {
-                NavigationLink(destination: SelectUserView(updateUserSelected: updateFirstLeftUserSelected(selectedUser:))) {
+                NavigationLink(destination: SelectUserView(updateUserSelected: updateFirstLeftUserSelected(selectedUser:), listOfUsersSelected: listOfUsersSelected)) {
                     HStack (alignment: .center, spacing: 10) {
                         Image(systemName: "person.fill")
                             .foregroundColor(theme.customYellow)
@@ -71,7 +73,7 @@ struct AddMatchUserView: View {
                 
                 Spacer().frame(width: 40)
                 
-                NavigationLink(destination: SelectUserView(updateUserSelected: updateFirstRightUserSelected(selectedUser:))) {
+                NavigationLink(destination: SelectUserView(updateUserSelected: updateFirstRightUserSelected(selectedUser:), listOfUsersSelected: listOfUsersSelected)) {
                     Spacer(minLength: 20)
                     HStack (alignment: .center, spacing: 10) {
                         Text(firstRightPlayer.firstName).foregroundColor(theme.customYellow)
@@ -89,7 +91,7 @@ struct AddMatchUserView: View {
             
             if (!singleMatch) {
                 HStack {
-                    NavigationLink(destination: SelectUserView(updateUserSelected: updateSecondLeftUserSelected(selectedUser:))) {
+                    NavigationLink(destination: SelectUserView(updateUserSelected: updateSecondLeftUserSelected(selectedUser:), listOfUsersSelected: listOfUsersSelected)) {
                         HStack (alignment: .center, spacing: 10) {
                             Image(systemName: "person.fill")
                                 .foregroundColor(theme.customYellow)
@@ -104,7 +106,7 @@ struct AddMatchUserView: View {
                     
                     Spacer().frame(width: 40)
                     
-                    NavigationLink(destination: SelectUserView(updateUserSelected: updateSecondRightUserSelected(selectedUser:))) {
+                    NavigationLink(destination: SelectUserView(updateUserSelected: updateSecondRightUserSelected(selectedUser:), listOfUsersSelected: listOfUsersSelected)) {
                         Spacer(minLength: 20)
                         HStack (alignment: .center, spacing: 10) {
                             Text(secondRightPlayer.firstName).foregroundColor(theme.customYellow)
@@ -119,7 +121,7 @@ struct AddMatchUserView: View {
                 }.padding([.top], 10)
             }
             
-            NavigationLink(destination: AddMatchSetView()) {
+            NavigationLink(destination: AddMatchSetView(teamsExist: !singleMatch, firstLeftPlayer: firstLeftPlayer, firstRightPlayer: firstRightPlayer, secondLeftPlayer: secondLeftPlayer, secondRightPlayer: secondRightPlayer)) {
                 Text("N E X T")
                     .padding()
                     .frame(width: 250)
@@ -153,18 +155,38 @@ struct AddMatchUserView: View {
     }
     
     func updateFirstLeftUserSelected(selectedUser: User) -> Void {
+        if (listOfUsersSelected.contains(firstLeftPlayer)) {
+            let index = listOfUsersSelected.firstIndex(of: firstLeftPlayer) ?? 0
+            listOfUsersSelected.remove(at: index)
+        }
+        listOfUsersSelected.append(selectedUser)
         firstLeftPlayer = selectedUser
     }
     
     func updateFirstRightUserSelected(selectedUser: User) -> Void {
+        if (listOfUsersSelected.contains(firstRightPlayer)) {
+            let index = listOfUsersSelected.firstIndex(of: firstRightPlayer) ?? 0
+            listOfUsersSelected.remove(at: index)
+        }
+        listOfUsersSelected.append(selectedUser)
         firstRightPlayer = selectedUser
     }
     
     func updateSecondLeftUserSelected(selectedUser: User) -> Void {
+        if (listOfUsersSelected.contains(secondLeftPlayer)) {
+            let index = listOfUsersSelected.firstIndex(of: secondLeftPlayer) ?? 0
+            listOfUsersSelected.remove(at: index)
+        }
+        listOfUsersSelected.append(selectedUser)
         secondLeftPlayer = selectedUser
     }
     
     func updateSecondRightUserSelected(selectedUser: User) -> Void {
+        if (listOfUsersSelected.contains(secondRightPlayer)) {
+            let index = listOfUsersSelected.firstIndex(of: secondRightPlayer) ?? 0
+            listOfUsersSelected.remove(at: index)
+        }
+        listOfUsersSelected.append(selectedUser)
         secondRightPlayer = selectedUser
     }
 }
