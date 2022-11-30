@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB01931129379B58007630EC /* 20221130_150631_0000.png in Resources */ = {isa = PBXBuildFile; fileRef = BB01931029379B58007630EC /* 20221130_150631_0000.png */; };
 		BB1CA9D9292F725D00FC3CF2 /* ModifyUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1CA9D8292F725D00FC3CF2 /* ModifyUserView.swift */; };
 		BB28D292292FFE8400203096 /* AddUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB28D291292FFE8400203096 /* AddUserView.swift */; };
 		BB963B482935E83A00F744E6 /* SelectUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB963B472935E83A00F744E6 /* SelectUserView.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB01931029379B58007630EC /* 20221130_150631_0000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 20221130_150631_0000.png; path = ../../../../Downloads/20221130_150631_0000.png; sourceTree = "<group>"; };
 		BB1CA9D8292F725D00FC3CF2 /* ModifyUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyUserView.swift; sourceTree = "<group>"; };
 		BB28D291292FFE8400203096 /* AddUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserView.swift; sourceTree = "<group>"; };
 		BB963B472935E83A00F744E6 /* SelectUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserView.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				F5581357292B642400BD8E41 /* Views */,
 				F5581349292B5FB600BD8E41 /* AscaGamesApp.swift */,
 				F558134B292B5FB600BD8E41 /* ContentView.swift */,
+				BB01931029379B58007630EC /* 20221130_150631_0000.png */,
 				F558134D292B5FBA00BD8E41 /* Assets.xcassets */,
 				F558134F292B5FBA00BD8E41 /* Preview Content */,
 			);
@@ -351,6 +354,7 @@
 			files = (
 				F5581351292B5FBA00BD8E41 /* Preview Assets.xcassets in Resources */,
 				F558134E292B5FBA00BD8E41 /* Assets.xcassets in Resources */,
+				BB01931129379B58007630EC /* 20221130_150631_0000.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
