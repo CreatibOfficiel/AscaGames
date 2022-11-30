@@ -36,8 +36,13 @@ struct SelectUser: View {
                         Spacer(minLength: 5)
                     }.padding(10)
                 }.frame(width: 350, height: 60)
-                    .background(theme.customYellow)
-                
+                    .background(
+                       Rectangle()
+                        .fill(theme.customYellow)
+                        .padding(.bottom, 20)
+                        .cornerRadius(20)
+                        .padding(.bottom, -20)
+                    )
                 ScrollView {
                     Spacer()
                     ForEach(searchData, id: \.self) { u in
@@ -46,9 +51,12 @@ struct SelectUser: View {
                     }
                     Spacer()
                 }
+
             }.frame(width: 350, height: 550)
-                .border(theme.customYellow, width: 5)
-                .padding(.bottom, 20)
+                .overlay(
+                   RoundedRectangle(cornerRadius: 50)
+                       .stroke(theme.customYellow, lineWidth: 10)
+                ).padding(.bottom, 20)
         }
     }
     
