@@ -11,6 +11,7 @@ struct AddMatchSetView: View {
     
     @State private var threeSets = true
     @State var teamsExist: Bool
+    @State var refreshView: (MatchHistory) -> Void
     
     @State private var firstSetLeftScore = ""
     @State private var firstSetRightScore = ""
@@ -165,18 +166,22 @@ struct AddMatchSetView: View {
                 if (teamsExist) {
                     let matchHistory = MatchHistory(teamWin: [firstLeftPlayer, secondLeftPlayer], teamLoose: [firstRightPlayer, secondRightPlayer], nbSets: 2, matchType: "ping pong", sets: [set1, set2])
                     MatchService().addMatchHistory(matchHistory: matchHistory)
+                    sendMatchHistory(matchHistory: matchHistory)
                 } else {
                     let matchHistory = MatchHistory(teamWin: [firstLeftPlayer], teamLoose: [firstRightPlayer], nbSets: 2, matchType: "ping pong", sets: [set1, set2])
                     MatchService().addMatchHistory(matchHistory: matchHistory)
+                    sendMatchHistory(matchHistory: matchHistory)
                 }
             } else {
                 // winner right team
                 if (teamsExist) {
                     let matchHistory = MatchHistory(teamWin: [firstRightPlayer, secondRightPlayer], teamLoose: [firstLeftPlayer, secondLeftPlayer], nbSets: 2, matchType: "ping pong", sets: [set1, set2])
                     MatchService().addMatchHistory(matchHistory: matchHistory)
+                    sendMatchHistory(matchHistory: matchHistory)
                 } else {
                     let matchHistory = MatchHistory(teamWin: [firstRightPlayer], teamLoose: [firstLeftPlayer], nbSets: 2, matchType: "ping pong", sets: [set1, set2])
                     MatchService().addMatchHistory(matchHistory: matchHistory)
+                    sendMatchHistory(matchHistory: matchHistory)
                 }
             }
         } else {
@@ -198,23 +203,31 @@ struct AddMatchSetView: View {
                 if (teamsExist) {
                     let matchHistory = MatchHistory(teamWin: [firstLeftPlayer, secondLeftPlayer], teamLoose: [firstRightPlayer, secondRightPlayer], nbSets: 3, matchType: "ping pong", sets: [set1, set2, set3])
                     MatchService().addMatchHistory(matchHistory: matchHistory)
+                    sendMatchHistory(matchHistory: matchHistory)
                 } else {
                     let matchHistory = MatchHistory(teamWin: [firstLeftPlayer], teamLoose: [firstRightPlayer], nbSets: 3, matchType: "ping pong", sets: [set1, set2, set3])
                     MatchService().addMatchHistory(matchHistory: matchHistory)
+                    sendMatchHistory(matchHistory: matchHistory)
                 }
             } else {
                 // winner right team
                 if (teamsExist) {
                     let matchHistory = MatchHistory(teamWin: [firstRightPlayer, secondRightPlayer], teamLoose: [firstLeftPlayer, secondLeftPlayer], nbSets: 3, matchType: "ping pong", sets: [set1, set2, set3])
                     MatchService().addMatchHistory(matchHistory: matchHistory)
+                    sendMatchHistory(matchHistory: matchHistory)
                 } else {
                     let matchHistory = MatchHistory(teamWin: [firstRightPlayer], teamLoose: [firstLeftPlayer], nbSets: 3, matchType: "ping pong", sets: [set1, set2, set3])
                     MatchService().addMatchHistory(matchHistory: matchHistory)
+                    sendMatchHistory(matchHistory: matchHistory)
                 }
             }
         }
         
         self.presentationMode.wrappedValue.dismiss()
+    }
+    
+    func sendMatchHistory(matchHistory: MatchHistory) {
+        refreshView(matchHistory)
     }
     
     func canCreateMatch() -> Bool {

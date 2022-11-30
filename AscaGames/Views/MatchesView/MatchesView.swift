@@ -28,10 +28,15 @@ struct MatchesView: View {
                 Text("ALL MATCHES").foregroundColor(.white)
                 Spacer().frame(height: 60)
                 
-                RankingMatches(data1v1: data1v1, data2v2: data2v2)
+                RankingMatches(data1v1: data1v1, data2v2: data2v2, refreshParent: refreshView)
             }
             .frame(width: 1000)
             .background(Color.black)
         }
+    }
+    
+    func refreshView() {
+        data1v1 = MatchService().getMatchHistory1v1()
+        data2v2 = MatchService().getMatchHistory2v2()
     }
 }

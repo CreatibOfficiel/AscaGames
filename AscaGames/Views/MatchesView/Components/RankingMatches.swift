@@ -5,6 +5,7 @@ struct RankingMatches: View {
     @State var data1v1 : Array<MatchHistory>
     @State var data2v2 : Array<MatchHistory>
     @State var singleMatch : Bool = true
+    @State var refreshParent: () -> Void
     
     var body: some View {
         ScrollView {
@@ -61,7 +62,7 @@ struct RankingMatches: View {
                 }
                 
                 VStack {
-                    NavigationLink(destination: AddMatchUserView()) {
+                    NavigationLink(destination: AddMatchUserView(refreshView:refreshView)) {
                         Text("+   N E W   M A T C H")
                             .padding()
                             .frame(width: 250)
@@ -86,6 +87,14 @@ struct RankingMatches: View {
                    .stroke(theme.customYellow, lineWidth: 10)
             )
             
+        }
+    }
+    
+    func refreshView(matchHistory: MatchHistory) {
+        if(matchHistory.teamWin.count == 1) {
+            data1v1.append(matchHistory)
+        } else {
+            data2v2.append(matchHistory)
         }
     }
     
