@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddMatchUserView: View {
     
+    @Binding var rootIsActive: Bool
     @State var singleMatch : Bool = true
     @State var refreshView: (MatchHistory) -> Void
     
@@ -18,6 +19,7 @@ struct AddMatchUserView: View {
     @State var secondRightPlayer : User = User(idUser: UUID(), firstName: "", lastName: "", elo: 0)
     
     @State var listOfUsersSelected : [User] = []
+    
     
     var body: some View {
         VStack(spacing: 0) {
@@ -122,7 +124,7 @@ struct AddMatchUserView: View {
                 }.padding([.top], 10)
             }
             
-            NavigationLink(destination: AddMatchSetView(teamsExist: !singleMatch,refreshView: refreshView, firstLeftPlayer: firstLeftPlayer, firstRightPlayer: firstRightPlayer, secondLeftPlayer: secondLeftPlayer, secondRightPlayer: secondRightPlayer)) {
+            NavigationLink(destination: AddMatchSetView(shouldPopToRootView: self.$rootIsActive, teamsExist: !singleMatch,refreshView: refreshView, firstLeftPlayer: firstLeftPlayer, firstRightPlayer: firstRightPlayer, secondLeftPlayer: secondLeftPlayer, secondRightPlayer: secondRightPlayer)) {
                 Text("N E X T")
                     .padding()
                     .frame(width: 250)
@@ -190,4 +192,5 @@ struct AddMatchUserView: View {
         listOfUsersSelected.append(selectedUser)
         secondRightPlayer = selectedUser
     }
+    
 }

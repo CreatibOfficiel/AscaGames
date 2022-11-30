@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AddMatchSetView: View {
     
+    @Binding var shouldPopToRootView : Bool
+    
     @State private var threeSets = true
     @State var teamsExist: Bool
     @State var refreshView: (MatchHistory) -> Void
@@ -223,11 +225,11 @@ struct AddMatchSetView: View {
             }
         }
         
-        self.presentationMode.wrappedValue.dismiss()
     }
     
     func sendMatchHistory(matchHistory: MatchHistory) {
         refreshView(matchHistory)
+        self.shouldPopToRootView = false
     }
     
     func canCreateMatch() -> Bool {

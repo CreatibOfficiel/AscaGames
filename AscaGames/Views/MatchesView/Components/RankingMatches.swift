@@ -6,6 +6,7 @@ struct RankingMatches: View {
     @State var data2v2 : Array<MatchHistory>
     @State var singleMatch : Bool = true
     @State var refreshParent: () -> Void
+    @State var isActive: Bool = false
     
     var body: some View {
         ScrollView {
@@ -62,7 +63,10 @@ struct RankingMatches: View {
                 }
                 
                 VStack {
-                    NavigationLink(destination: AddMatchUserView(refreshView:refreshView)) {
+                    NavigationLink(
+                        destination: AddMatchUserView(rootIsActive: self.$isActive, refreshView:refreshView),
+                        isActive: self.$isActive
+                    ) {
                         Text("+   N E W   M A T C H")
                             .padding()
                             .frame(width: 250)
@@ -71,7 +75,8 @@ struct RankingMatches: View {
                             .overlay(
                                 RoundedRectangle(cornerRadius: 30).stroke(.white, lineWidth: 2)
                             )
-                    }.padding([.top,.bottom], 10)
+                    }.isDetailLink(false)
+                    .padding([.top,.bottom], 10)
                 }
                 .frame(maxWidth: .infinity)
                 .background(
